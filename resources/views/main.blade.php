@@ -159,6 +159,7 @@
     <div class='residentialboxC res_C59'></div>
     <div class='residentialboxC res_C60'></div>
     <div class='residentialboxC res_C61'></div>
+    <div class='residentialboxC res_C62'></div>
 
 </div>
 </body>

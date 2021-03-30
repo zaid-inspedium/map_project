@@ -55,7 +55,7 @@
                                             <th>#</th>
                                             <th>BOOKING DATE</th>
                                             <th>AGENT</th>
-                                            <th>PLOT SIZE ( yd2 )</th>
+                                            <th>PLOT SIZE - Square Yards (Gazz) </th>
                                             <th>APPLICANT NAME</th>
                                             <th>PHONE NO</th>
                                             <th>BOOKING AMOUNT</th>
@@ -71,8 +71,8 @@
                                 <tr>
                                     <td>{{$i++}}</td>
                                     <td class="product-name">{{ date('d-m-Y',strtotime($d->booking_date)) }}</td>
-                                    <td class="product-name">{{ $d->agent_name }}</td>
-                                    <td class="product-name">{{ $d->plot_size }} Square Yards (Gazz)</td>
+                                    <td class="product-name"><strong>{{ $d->agent_name }}</strong></td>
+                                    <td class="product-name">{{ $d->plot_size }} <em class="text-primary font-small-2">yd2</em></td>
                                     <td class="product-name">{{ $d->applicant_name }}</td>
                                     <td class="product-name">{{ $d->phone_no }}</td>
                                     <td class="product-name">{{ number_format($d->booking_amount) }}</td>
@@ -193,7 +193,7 @@
 <!-- //Add Booking Modal -->
 
 <!-- View Booking Modal -->
-<div class="modal fade" id="viewBooking" style="margin-top: 100px;" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="viewBooking" style="margin-top: 60px;" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content " id="modal_content">
       

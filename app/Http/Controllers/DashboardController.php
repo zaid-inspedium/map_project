@@ -116,11 +116,11 @@ class DashboardController extends Controller
             </div>
             <div class="row">
               <div class="col-4"><p for="plot_size"><strong>Plot Size</strong> </p></div>
-              <div class="col-8"> <span class="text-right font-medium-3 mx-2">'. $booking->plot_size .'  <em class="text-primary font-small-2">yd2</em> </span></div>
+              <div class="col-8"> <span class="text-right font-medium-2 mx-2">'. $booking->plot_size .'  <em class="text-primary font-small-2">yd2</em> </span></div>
             </div>
             <div class="row">
               <div class="col-4"><p for="unit_no"><strong>Unit-No</strong> </p></div>
-              <div class="col-8"> <span class="text-right font-medium-3 mx-2">'. $booking->unit_no .' </span></div>
+              <div class="col-8"> <span class="text-right font-medium-2 mx-2">'. $booking->unit_no .' </span></div>
             </div>
             <div class="row">
               <div class="col-4"><p for="applicant_name"><strong>Applicant Name</strong> </p></div>
@@ -128,11 +128,11 @@ class DashboardController extends Controller
             </div>
             <div class="row">
               <div class="col-4"><p for="cnic"><strong>CNIC</strong> </p></div>
-              <div class="col-8"> <span class="text-right font-medium-3 mx-2">'. $booking->cnic .' </span></div>
+              <div class="col-8"> <span class="text-right font-medium-2 mx-2">'. $booking->cnic .' </span></div>
             </div>
             <div class="row">
               <div class="col-4"><p for="phone_no"><strong>Phone Number</strong> </p></div>
-              <div class="col-8"> <span class="text-right font-medium-3 mx-2">'. $booking->phone_no .' </span></div>
+              <div class="col-8"> <span class="text-right font-medium-2 mx-2">'. $booking->phone_no .' </span></div>
             </div>
             <div class="row">
               <div class="col-4"><p for="booking_amount"><strong>Booking Amount</strong> </p></div>
@@ -166,7 +166,7 @@ class DashboardController extends Controller
                 </div>
             <div class="row">
               <div class="col-4"><p for="phone_no"><strong>Created At</strong> </p></div>
-              <div class="col-8"> <span class="text-right font-medium-3 mx-2">'. $booking->created_at .' </span></div>
+              <div class="col-8"> <span class="text-right font-medium-2 mx-2">'. $booking->created_at .' </span></div>
             </div>
           </div>
           <div class="modal-footer">

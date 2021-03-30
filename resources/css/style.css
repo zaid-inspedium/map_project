@@ -1,0 +1,632 @@
+.myimage {
+    width: 1500px;
+    height: 300px;
+    position: relative;
+}
+.face {
+    width: 60px;
+    height: 90px;
+    border: 1px solid black;
+    top: 70px;
+    left: 70px;
+    position: absolute
+}
+.face2 {
+    width: 60px;
+    height: 90px;
+    border: 1px solid black;
+    top: 70px;
+    left: 70px;
+    position: absolute
+}
+.commercialbox {
+    border: 1px solid black;
+    width: 35px;
+    height: 35px;
+    position: absolute
+}
+.residentialboxA {
+    border: 1px solid black;
+    width: 55px;
+    height: 25px;
+    position: absolute
+}
+.residentialboxA_custom {
+    border: 1px solid black;
+    width: 35px;
+    height: 38px;
+    position: absolute
+}
+.residentialboxC {
+    border: 1px solid black;
+    width: 82px;
+    height: 44px;
+    position: absolute
+}
+
+.residentialboxC_custom {
+    border: 1px solid black;
+    width: 44px;
+    height: 82px;
+    position: absolute
+}
+
+.residentialboxC_custom2 {
+    border: 1px solid black;
+    width: 65px;
+    height: 56px;
+    position: absolute
+}
+
+.residentialboxC_custom3{
+    border: 1px solid black;
+    width: 55px;
+    height: 71px;
+    position: absolute
+}
+
+.residentialboxD {
+    border: 1px solid black;
+    width: 119px;
+    height: 65px;
+    position: absolute
+}
+
+
+.com20 {
+    top: 172px;
+    left: 295px;
+}
+
+.com19 {
+    top: 185px;
+    left: 337px;
+}
+
+.com18 {
+    top: 198px;
+    left: 375px;
+}
+
+.com17 {
+    top: 209px;
+    left: 410px;
+}
+
+.com16 {
+    top: 218px;
+    left: 448px;
+}
+
+.com15 {
+    top: 230px;
+    left: 485px;
+}
+.com14 {
+    top: 240px;
+    left: 520px;
+}
+.com13 {
+    top: 250px;
+    left: 560px;
+}
+.com12 {
+    top: 262px;
+    left: 595px;
+}
+.com11 {
+    top: 274px;
+    left: 637px;
+}
+
+.com10 {
+    top: 300px;
+    left: 725px;
+}
+.com9 {
+    top: 315px;
+    left: 768px;
+}
+.com8 {
+    top: 328px;
+    left: 805px;
+}
+.com7 {
+    top: 337px;
+    left: 840px;
+}
+.com5 {
+    top: 362px;
+    left: 925px;
+}
+.com6 {
+    top: 350px;
+    left: 880px;
+}
+.com4 {
+    top: 375px;
+    left: 963px;
+}
+.com3 {
+    top: 385px;
+    left: 1000px;
+}
+.com2 {
+    top: 395px;
+    left: 1037px;
+}
+.com1 {
+    top: 410px;
+    left: 1080px;
+}
+
+/*Residential Plots*/
+.res1 {
+    top: 612px;
+    left: 1068px;
+}
+.res2 {
+    top: 584px;
+    left: 1068px;
+}
+.res3 {
+    top: 555px;
+    left: 1068px;
+}
+.res4 {
+    top: 527px;
+    left: 1068px;
+}
+.res5 {
+    top: 498px;
+    left: 1068px;
+}
+.res6 {
+    top: 498px;
+    left: 1011px;
+}
+.res7 {
+    top: 527px;
+    left: 1011px;
+}
+.res8 {
+    top: 555px;
+    left: 1011px;
+}
+.res9 {
+    top: 584px;
+    left: 1011px;
+}
+.res10 {
+    top: 612px;
+    left: 1011px;
+}
+.res11 {
+    top: 614px;
+    left: 924px;
+}
+.res12 {
+    top: 586px;
+    left: 924px;
+}
+.res13 {
+    top: 556px;
+    left: 923px;
+}
+.res14 {
+    top: 528px;
+    left: 923px;
+}
+.res15 {
+    top: 498px;
+    left: 923px;
+}
+.res16 {
+    top: 470px;
+    left: 923px;
+}
+.res22 {
+    top: 614px;
+    left: 866px;
+}
+.res21 {
+    top: 586px;
+    left: 866px;
+}
+.res20 {
+    top: 556px;
+    left: 866px;
+}
+.res19 {
+    top: 528px;
+    left: 866px;
+}
+.res18 {
+    top: 498px;
+    left: 866px;
+}
+.res17 {
+    top: 470px;
+    left: 866px;
+}
+.res24 {
+    top: 573px;
+    left: 778px;
+}
+.res23 {
+    top: 601px;
+    left: 798px;
+}
+.res25 {
+    top: 543px;
+    left: 778px;
+}
+.res26 {
+    top: 514px;
+    left: 778px;
+}
+.res27 {
+    top: 485px;
+    left: 778px;
+}
+.res28 {
+    top: 456px;
+    left: 778px;
+}
+.res29 {
+    top: 427px;
+    left: 778px;
+}
+.res35 {
+    top: 573px;
+    left: 721px;
+}
+.res36 {
+    top: 601px;
+    left: 721px;
+}
+.res37 {
+    top: 601px;
+    left: 759px;
+}
+.res34 {
+    top: 543px;
+    left: 721px;
+}
+.res33 {
+    top: 514px;
+    left: 721px;
+}
+.res32 {
+    top: 485px;
+    left: 721px;
+}
+.res31 {
+    top: 456px;
+    left: 721px;
+}
+.res30 {
+    top: 427px;
+    left: 721px;
+}
+
+
+/*C Block*/
+.res_C1 {
+    top: 454px;
+    left: 595px;
+}
+.res_C2 {
+    top: 405px;
+    left: 594px;
+}
+.res_C3 {
+    top: 358px;
+    left: 594px;
+}
+.res_C4 {
+    top: 358px;
+    left: 508px;
+}
+.res_C5 {
+    top: 405px;
+    left: 508px;
+}
+.res_C6 {
+    top: 454px;
+    left: 508px;
+}
+
+.res_C7 {
+    top: 600px;
+    left: 383px;
+}
+.res_C8 {
+    top: 552px;
+    left: 383px;
+}
+.res_C9 {
+    top: 504px;
+    left: 382px;
+}
+.res_C10 {
+    top: 455px;
+    left: 382px;
+}
+.res_C11 {
+    top: 408px;
+    left: 381px;
+}
+.res_C12 {
+    top: 359px;
+    left: 381px;
+}
+
+.res_C18 {
+    top: 600px;
+    left: 296px;
+}
+.res_C17 {
+    top: 552px;
+    left: 296px;
+}
+.res_C16 {
+    top: 504px;
+    left: 296px;
+}
+.res_C15 {
+    top: 455px;
+    left: 296px;
+}
+.res_C14 {
+    top: 408px;
+    left: 296px;
+}
+.res_C13 {
+    top: 359px;
+    left: 296px;
+}
+
+.res_C19 {
+    top: 603px;
+    left: 170px;
+}
+.res_C20 {
+    top: 555px;
+    left: 170px;
+}
+.res_C21 {
+    top: 507px;
+    left: 170px;
+}
+.res_C22 {
+    top: 458px;
+    left: 170px;
+}
+.res_C23 {
+    top: 410px;
+    left: 169px;
+}
+.res_C24 {
+    top: 361px;
+    left: 169px;
+}
+
+.res_C30 {
+    top: 603px;
+    left: 85px;
+}
+.res_C29 {
+    top: 555px;
+    left: 84px;
+}
+.res_C28 {
+    top: 507px;
+    left: 83px;
+}
+.res_C27 {
+    top: 458px;
+    left: 83px;
+}
+.res_C26 {
+    top: 410px;
+    left: 82px;
+}
+.res_C25 {
+    top: 361px;
+    left: 83px;
+}
+
+.res_C31 {
+    top: 681px;
+    left: 970px;
+}
+.res_C32 {
+    top: 681px;
+    left: 1039px;
+}
+.res_C33 {
+    top: 681px;
+    left: 1088px;
+}
+.res_C34 {
+    top: 679px;
+    left: 1136px;
+}
+.res_C35 {
+    top: 679px;
+    left: 1184px;
+}
+.res_C36 {
+    top: 678px;
+    left: 1230px;
+}
+.res_C37 {
+    top: 761px;
+    left: 1230px;
+}
+
+.res_C41 {
+    top: 767px;
+    left: 1039px;
+}
+.res_C40 {
+    top: 767px;
+    left: 1088px;
+}
+.res_C42 {
+    top: 801px;
+    left: 970px;
+}
+.res_C43 {
+    top: 742px;
+    left: 970px;
+}
+.res_C39 {
+    top: 765px;
+    left: 1136px;
+}
+.res_C38 {
+    top: 763px;
+    left: 1184px;
+}
+
+/*D block*/
+.res_D1 {
+    top: 683px;
+    left: 808px;
+}
+.res_D2 {
+    top: 752px;
+    left: 808px;
+}
+.res_D3 {
+    top: 821px;
+    left: 809px;
+}
+/*D Block end*/
+
+.res_C44 {
+    top: 684px;
+    left: 723px;
+}
+.res_C45 {
+    top: 732px;
+    left: 724px;
+}
+.res_C46 {
+   top: 780px;
+    left: 724px;
+}
+.res_C47 {
+    top: 827px;
+    left: 724px;
+}
+
+.res_C53 {
+    top: 684px;
+    left: 510px;
+}
+.res_C52 {
+    top: 684px;
+    left: 568px;
+}
+.res_C51 {
+    top: 684px;
+    left: 625px;
+}
+.res_C50 {
+    top: 758px;
+    left: 598px;
+}
+.res_C48 {
+    top: 853px;
+    left: 598px;
+}
+.res_C49 {
+    top: 805px;
+    left: 598px;
+}
+.res_C54 {
+    top: 758px;
+    left: 512px;
+}
+.res_C55 {
+    top: 806px;
+    left: 512px;
+}
+.res_C56 {
+    top: 853px;
+    left: 512px;
+}
+
+.res_C57 {
+    top: 880px;
+    left: 387px;
+}
+.res_C58 {
+    top: 831px;
+    left: 387px;
+}
+.res_C59 {
+    top: 783px;
+    left: 386px;
+}
+.res_C60 {
+    top: 736px;
+    left: 386px;
+}
+.res_C61 {
+    top: 687px;
+    left: 385px;
+}
+
+.foot {
+    width: 60px;
+    height: 90px;
+    border: 1px solid green;
+    top: 110px;
+    left: 200px;
+    position: absolute
+}
+img {
+    width: 100%;
+    height: auto;
+}
+.face:hover {
+    background-color: red;
+}
+.face2:hover {
+    background-color: yellow;
+}
+
+.commercialbox:hover, .residentialboxA:hover, .residentialboxA_custom:hover, .residentialboxC:hover, .residentialboxC_custom:hover, .residentialboxC_custom2:hover, .residentialboxC_custom3:hover, .residentialboxD:hover {
+    background-color: red;
+    opacity: 0.5;
+}
+
+/*.com20:hover {
+    background-color: blue;
+}
+.com19:hover {
+    background-color: blue;
+}
+.com18:hover {
+    background-color: blue;
+}
+.com17:hover {
+    background-color: blue;
+}
+.com16:hover {
+    background-color: blue;
+}
+.com16:hover {
+    background-color: blue;
+}
+.com16:hover {
+    background-color: blue;
+}*/
+
+.foot:hover {
+    background-color: green;
+}

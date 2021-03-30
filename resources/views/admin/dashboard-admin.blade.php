@@ -44,22 +44,19 @@
 
                 <!-- Responsive tables start -->
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-12">
                         <div class="card">
                             
                             <div class="card-content">
-                                <table class="table" id="myTable">
+                                <table class="table table-responsive mt-1" id="myTable">
                             <input class="form-control" id="myInput" type="text" placeholder="Search..">
                                     <thead>
                                         <tr>
                                             <th>#</th>
                                             <th>BOOKING DATE</th>
                                             <th>AGENT</th>
-                                            <th>BLOCK</th>
-                                            <th>PLOT SIZE</th>
-                                            <th>UNIT NO</th>
+                                            <th>PLOT SIZE ( yd2 )</th>
                                             <th>APPLICANT NAME</th>
-                                            <th>CNIC</th>
                                             <th>PHONE NO</th>
                                             <th>BOOKING AMOUNT</th>
                                             <th>REMAINING AMOUNT</th>
@@ -75,18 +72,30 @@
                                     <td>{{$i++}}</td>
                                     <td class="product-name">{{ date('d-m-Y',strtotime($d->booking_date)) }}</td>
                                     <td class="product-name">{{ $d->agent_name }}</td>
-                                    <td class="product-name">{{ $d->block_name }}</td>
                                     <td class="product-name">{{ $d->plot_size }} Square Yards (Gazz)</td>
-                                    <td class="product-name">{{ $d->unit_no }}</td>
                                     <td class="product-name">{{ $d->applicant_name }}</td>
-                                    <td class="product-name">{{ $d->cnic }}</td>
                                     <td class="product-name">{{ $d->phone_no }}</td>
                                     <td class="product-name">{{ number_format($d->booking_amount) }}</td>
                                     <td class="product-name">{{ number_format($d->remaining_amount) }}</td>
-                                    <td class="product-name">{{ $d->status }}</td>
+                                    <td class="product-name">
+                                    @if($d->status == "Booked")    
+                                        <div class="chip chip-primary mr-1">
+                                            <div class="chip-body">
+                                                <span class="chip-text">{{ $d->status }}</span>
+                                            </div>
+                                        </div>
+                                    @else
+                                        <div class="chip chip-success mr-1">
+                                            <div class="chip-body">
+                                                <span class="chip-text">{{ $d->status }}</span>
+                                            </div>
+                                        </div>
+                                    @endif
+                                    </td>
                                     <td class="product-name">{{ $d->created_at }}</td>
                                     <td>
-                                        <a href="{{ route('dashboard.edit', $d->id) }}" id="{{ $d->id }}" class="btn btn-secondary dynamic_booking" style="color: white;" data-toggle="modal" data-target="#viewBooking">
+                                        <div class="">
+                                        <a href="{{ route('dashboard.edit', $d->id) }}" id="{{ $d->id }}" class="btn btn-primary dynamic_booking" style="color: white;" data-toggle="modal" data-target="#viewBooking">
                                           <i class="fa fa-eye"></i> View
                                         </a>
                                         <a href="{{ route('dashboard.edit', $d->id) }}" class="btn btn-info" style="color: white;">
@@ -95,6 +104,7 @@
                                         <a href="{{ route('booking_del', $d->id) }}" class="btn btn-danger" style="color: white;">
                                           <i class="fa fa-trash"></i> Cancel
                                         </a>
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach

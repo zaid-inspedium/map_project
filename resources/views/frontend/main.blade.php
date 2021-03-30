@@ -8,8 +8,28 @@
 <div class='myimage'>
     <img src="{{ asset('public/app-assets/images/sitemap_1.jpg')}}" />
 
+
+     <!-- SA Commercial 11-20 -->
+    @for($x = 20; $x >= 1; $x--)
+
+        @foreach($getData as $data)
+            
+            @if($data->block->name == 'SA')
+
+                @if($data->unit_no == $x && $data->status == 'Booked')
+                    <div class='commercialboxBooked com{{$x}}'></div>
+                @else
+                    <div class='commercialbox com{{$x}}'></div>
+                @endif
+
+            @endif
+
+        @endforeach
+    
+    @endfor
+
     <!-- SA Commercial 11-20 -->
-    <div class='commercialbox com20'></div>
+  <!--   <div class='commercialbox com20'></div>
     <div class='commercialbox com19'></div>
     <div class='commercialbox com18'></div>
     <div class='commercialbox com17'></div>
@@ -19,10 +39,7 @@
     <div class='commercialbox com13'></div>
     <div class='commercialbox com12'></div>
     <div class='commercialbox com11'></div>
-    <!-- SA Commercial 11-20 end-->
 
-
-    <!-- SA Commercial 1-10 -->
     <div class='commercialbox com10'></div>
     <div class='commercialbox com9'></div>
     <div class='commercialbox com8'></div>
@@ -32,7 +49,7 @@
     <div class='commercialbox com4'></div>
     <div class='commercialbox com3'></div>
     <div class='commercialbox com2'></div>
-    <div class='commercialbox com1'></div> 
+    <div class='commercialbox com1'></div>  -->
 
     <!-- Block A -->
     <div class='residentialboxA res1'></div>

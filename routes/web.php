@@ -14,10 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', function () {
-    return view('frontend.main');
-});
 
+Route::get('/', [App\Http\Controllers\FrontendController::class,'index']);
 Route::resource('sign-up', App\Http\Controllers\SignupController::class);
 
 Route::get('/log-in', function () {

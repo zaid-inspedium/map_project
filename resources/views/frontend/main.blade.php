@@ -10,22 +10,33 @@
 
 
      <!-- SA Commercial 11-20 -->
+   
+
     @for($x = 20; $x >= 1; $x--)
 
         @foreach($getData as $data)
             
             @if($data->block->name == 'SA')
 
-                @if($data->unit_no == $x && $data->status == 'Booked')
-                    <div class='commercialboxBooked com{{$x}}'></div>
-                @else
-                    <div class='commercialbox com{{$x}}'></div>
+                @if($data->unit_no == $x)
+
+                    @if($data->status == 'Booked')
+                        <div class='commercialboxBooked com{{$x}}'></div>
+                        
+                    @else
+                        <div class='commercialbox com{{$x}}'></div>
+                    @endif
+                    
                 @endif
 
+            @else
+                    <div class='commercialbox com{{$x}}'></div>
             @endif
 
+
         @endforeach
-    
+            
+            
     @endfor
 
     <!-- SA Commercial 11-20 -->
@@ -52,7 +63,37 @@
     <div class='commercialbox com1'></div>  -->
 
     <!-- Block A -->
-    <div class='residentialboxA res1'></div>
+    @for($i = 1; $i <= 37; $i++)
+
+        @foreach($getData as $data)
+            
+            @if($data->block->name == 'A')
+
+
+                @if($i == 23 || $i == 36 || $i == 37)
+
+                    @if($data->unit_no == $i && $data->status == 'Booked')
+                        <div class='residentialboxA_customBooked res{{$i}}'></div>
+                    @else
+                        <div class='residentialboxA_custom res{{$i}}'></div>
+                    @endif
+
+                @else
+
+                    @if($data->unit_no == $i && $data->status == 'Booked')
+                        <div class='residentialboxABooked res{{$i}}'></div>
+                    @else
+                        <div class='residentialboxA res{{$i}}'></div>
+                    @endif
+
+                @endif
+
+            @endif
+
+        @endforeach
+    
+    @endfor
+    <!-- <div class='residentialboxA res1'></div>
     <div class='residentialboxA res2'></div>
     <div class='residentialboxA res3'></div>
     <div class='residentialboxA res4'></div>
@@ -90,7 +131,7 @@
     <div class='residentialboxA res34'></div>
     <div class='residentialboxA res35'></div>
     <div class='residentialboxA_custom res36'></div>
-    <div class='residentialboxA_custom res37'></div>
+    <div class='residentialboxA_custom res37'></div> -->
     <!-- Block A End -->
 
     <!-- Block C -->

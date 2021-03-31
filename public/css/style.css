@@ -25,13 +25,13 @@
     height: 35px;
     position: absolute
 }
-.residentialboxA {
+.residentialboxA, .residentialboxABooked {
     border: 1px solid black;
     width: 55px;
     height: 25px;
     position: absolute
 }
-.residentialboxA_custom {
+.residentialboxA_custom, .residentialboxA_customBooked {
     border: 1px solid black;
     width: 35px;
     height: 38px;
@@ -605,7 +605,7 @@ img {
     opacity: 0.7;
 }
 
-.commercialboxBooked:hover {
+.commercialboxBooked:hover, .residentialboxABooked:hover, .residentialboxA_customBooked:hover {
     background-color: red;
     opacity: 0.7;   
 }

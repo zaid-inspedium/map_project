@@ -17,6 +17,7 @@
         @foreach($getData as $data)
             
             @if($data->block->name == 'SA')
+<<<<<<< HEAD
 
                 @if($data->unit_no == $x)
 
@@ -27,6 +28,13 @@
                         <div class='commercialbox com{{$x}}'></div>
                     @endif
                     
+=======
+                
+                @if($data->unit_no == $x && $data->status == 'Booked')
+                    <div class='commercialboxBooked com{{$x}}'></div>
+                @else
+                    <div class='commercialbox com{{$x}}'></div>
+>>>>>>> 714ae8a7cb6479ae9a3b0c4bcb3d78c5967af646
                 @endif
 
             @else
@@ -173,9 +181,9 @@
     <div class='residentialboxC_custom res_C33'></div>
     <div class='residentialboxC_custom res_C34'></div>
     <div class='residentialboxC_custom res_C35'></div>
-    <div class='residentialboxC_custom res_C36'></div>
-    <div class='residentialboxC_custom res_C37'></div>
-    <div class='residentialboxC_custom res_C38'></div>
+    <div class='residentialboxC_customOutSizes36 res_C36'></div>
+    <div class='residentialboxC_customOutSizes37 res_C37'></div>
+    <div class='residentialboxC_customOutSizes res_C38'></div>
     <div class='residentialboxC_custom res_C39'></div>
     <div class='residentialboxC_custom res_C40'></div>
     <div class='residentialboxC_custom res_C41'></div>
@@ -191,9 +199,9 @@
     <div class='residentialboxC res_C44'></div>
     <div class='residentialboxC res_C45'></div>
     <div class='residentialboxC res_C46'></div>
-    <div class='residentialboxC res_C47'></div>
+    <div class='residentialboxCExtraSize res_C47'></div>
 
-    <div class='residentialboxC res_C48'></div>
+    <div class='residentialboxCExtraSize2 res_C48'></div>
     <div class='residentialboxC res_C49'></div>
     <div class='residentialboxC res_C50'></div>
     <div class='residentialboxC_custom3 res_C51'></div>
@@ -201,9 +209,9 @@
     <div class='residentialboxC_custom3 res_C53'></div> 
     <div class='residentialboxC res_C54'></div>
     <div class='residentialboxC res_C55'></div>
-    <div class='residentialboxC res_C56'></div>
+    <div class='residentialboxCExtraSize res_C56'></div>
 
-    <div class='residentialboxC res_C57'></div>
+    <div class='residentialboxCExtraSize3 res_C57'></div>
     <div class='residentialboxC res_C58'></div>
     <div class='residentialboxC res_C59'></div>
     <div class='residentialboxC res_C60'></div>

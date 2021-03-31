@@ -21,9 +21,11 @@
 }
 .commercialbox,.commercialboxBooked {
     border: 1px solid black;
-    width: 35px;
-    height: 35px;
-    position: absolute
+    width: 36px;
+    height: 36px;
+    position: absolute;
+    transform: rotate(17deg);
+    
 }
 .residentialboxA, .residentialboxABooked {
     border: 1px solid black;
@@ -44,11 +46,56 @@
     position: absolute
 }
 
+.residentialboxCExtraSize {
+    border: 1px solid black;
+    width: 82px;
+    height: 67px;
+    position: absolute
+}
+
+.residentialboxCExtraSize2 {
+    border: 1px solid black;
+    width: 82px;
+    height: 57px;
+    position: absolute
+}
+
+.residentialboxCExtraSize3 {
+    border: 1px solid black;
+    width: 81px;
+    height: 50px;
+    position: absolute;
+    transform: rotate(-2deg);
+}
+
 .residentialboxC_custom {
     border: 1px solid black;
     width: 44px;
     height: 82px;
     position: absolute
+}
+
+.residentialboxC_customOutSizes {
+    border: 1px solid black;
+    width: 44px;
+    height: 76px;
+    position: absolute 
+}
+
+.residentialboxC_customOutSizes36 {
+    width: 44px;
+    height: 82px;
+    border: 1px solid black;
+    transform: skew(6deg);
+    position: absolute;
+}
+
+.residentialboxC_customOutSizes37 {
+    border: 1px solid black;
+    width: 59px;
+    height: 71px;
+    position: absolute;
+    transform: rotate(-2deg);
 }
 
 .residentialboxC_custom2 {
@@ -79,17 +126,17 @@
 }
 
 .com19 {
-    top: 185px;
-    left: 337px;
+    top: 184px;
+    left: 335px;
 }
 
 .com18 {
-    top: 198px;
-    left: 375px;
+    top: 196px;
+    left: 373px;
 }
 
 .com17 {
-    top: 209px;
+    top: 207px;
     left: 410px;
 }
 
@@ -99,7 +146,7 @@
 }
 
 .com15 {
-    top: 230px;
+    top: 229px;
     left: 485px;
 }
 .com14 {
@@ -107,7 +154,7 @@
     left: 520px;
 }
 .com13 {
-    top: 250px;
+    top: 252px;
     left: 560px;
 }
 .com12 {
@@ -116,7 +163,7 @@
 }
 .com11 {
     top: 274px;
-    left: 637px;
+    left: 634px;
 }
 
 .com10 {
@@ -124,11 +171,11 @@
     left: 725px;
 }
 .com9 {
-    top: 315px;
+    top: 314px;
     left: 768px;
 }
 .com8 {
-    top: 328px;
+    top: 327px;
     left: 805px;
 }
 .com7 {
@@ -450,7 +497,7 @@
     left: 1088px;
 }
 .res_C34 {
-    top: 679px;
+    top: 680px;
     left: 1136px;
 }
 .res_C35 {
@@ -458,16 +505,16 @@
     left: 1184px;
 }
 .res_C36 {
-    top: 678px;
-    left: 1230px;
+    top: 679px;
+    left: 1234px;
 }
 .res_C37 {
-    top: 761px;
-    left: 1230px;
+    top: 765px;
+    left: 1233px;
 }
 
 .res_C41 {
-    top: 767px;
+    top: 769px;
     left: 1039px;
 }
 .res_C40 {
@@ -487,7 +534,7 @@
     left: 1136px;
 }
 .res_C38 {
-    top: 763px;
+    top: 764px;
     left: 1184px;
 }
 
@@ -519,7 +566,7 @@
     left: 724px;
 }
 .res_C47 {
-    top: 827px;
+    top: 829px;
     left: 724px;
 }
 
@@ -556,7 +603,7 @@
     left: 512px;
 }
 .res_C56 {
-    top: 853px;
+    top: 851px;
     left: 512px;
 }
 
@@ -600,7 +647,7 @@ img {
     background-color: yellow;
 }
 
-.commercialbox:hover, .residentialboxA:hover, .residentialboxA_custom:hover, .residentialboxC:hover, .residentialboxC_custom:hover, .residentialboxC_custom2:hover, .residentialboxC_custom3:hover, .residentialboxD:hover {
+.commercialbox:hover, .residentialboxA:hover, .residentialboxA_custom:hover, .residentialboxC:hover, .residentialboxCExtraSize:hover, .residentialboxCExtraSize2:hover, .residentialboxCExtraSize3:hover, .residentialboxC_custom:hover, .residentialboxC_customOutSizes:hover, .residentialboxC_customOutSizes36:hover, .residentialboxC_customOutSizes37:hover, .residentialboxC_custom2:hover, .residentialboxC_custom3:hover, .residentialboxD:hover {
     background-color: green;
     opacity: 0.7;
 }

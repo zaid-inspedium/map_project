@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Booking;
 use App\Models\Agent;
 use App\Models\Block;
+use DB;
 
 class FrontendController extends Controller
 {

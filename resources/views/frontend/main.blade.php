@@ -2,44 +2,111 @@
 <html>
 <head>
 	<title>The Project</title>
+    <meta http-equiv="refresh" content="5; URL=http://localhost/map_project/">
 	<link rel="stylesheet" type="text/css" href="{{ asset('public/css/style.css') }}" />
 </head>
+<style>
+fieldset {
+  background-color: #EEEEEE;
+  position: absolute;
+  margin-top: -1000px;
+  margin-left: 1200px;
+  border-radius: 8px;
+  /*width: 180px;*/
+}
+legend {
+  border-radius: 8px;
+  background-color: gray;
+  color: white;
+  padding: 8px 10px;
+  width: 130px;
+  font-size: 20px;
+}
+/* Set additional styling options for the columns*/
+    .column {
+    float: left;
+    width: 50%;
+    }
+    .row:after {
+    content: "";
+    display: table;
+    clear: both;
+    }
+</style>
 <body>
 <div class='myimage'>
+
     <img src="{{ asset('public/app-assets/images/sitemap_1.jpg')}}" />
 
+    <fieldset>
+      <legend><strong>Booking Status</strong></legend>
+        <div class="row">
+            <div class="column">
+                <p style="width:4px; background-color: red; padding:12px;"></p>
+            </div>
+            <div class="column">
+                <p><strong>Booked</strong></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column">
+                <p style="width:4px; background-color: green; padding:12px;"></p>
+            </div>
+            <div class="column">
+                <p><strong>Vacant</strong></p>
+            </div>
+        </div>
+     </fieldset>
+<!-- SA Commercial Block -->
 
-     <!-- SA Commercial 11-20 -->
-   
-
-    @for($x = 20; $x >= 1; $x--)
-
+    @for($x = 1; $x <= 20; $x++)
         @foreach($getData as $data)
-            
             @if($data->block->name == 'SA')
-
-                @if($data->unit_no == $x)
-
+                @if($data->unit_no == $x && $data->status == 'Booked')
+                    <div class='commercialboxBooked com{{$data->unit_no}}'></div>
+                @else
                     @if($data->status == 'Booked')
-                        <div class='commercialboxBooked com{{$x}}'></div>
-                        
+                        <div class='commercialboxBooked com{{$data->unit_no}}'></div>
                     @else
                         <div class='commercialbox com{{$x}}'></div>
                     @endif
-                    
                 @endif
-
             @else
-                    <div class='commercialbox com{{$x}}'></div>
+                <div class='commercialbox com{{$x}}'></div>
             @endif
-
-
         @endforeach
-            
-            
     @endfor
 
-    <!-- SA Commercial 11-20 -->
+
+<!-- Block A -->
+    @for($i = 1; $i <= 37; $i++)
+        @foreach($getData as $data)
+            @if($data->block->name == 'A')
+                @if($i == 23 || $i == 36 || $i == 37)
+
+                    @if($data->unit_no == $i && $data->status == 'Booked')
+                        <div class='residentialboxA_customBooked res{{$i}}'></div>
+                        @break
+                    @else
+                        <div class='residentialboxA_custom res{{$i}}'></div>
+                    @endif
+
+                @else
+                    @if($data->unit_no == $i && $data->status == 'Booked')
+                        <div class='residentialboxABooked res{{$i}}'></div>
+                        @break
+                    @else
+                        <div class='residentialboxA res{{$i}}'></div>
+                    @endif
+                @endif
+            @else
+            @endif
+        @endforeach
+    @endfor
+
+
+
+               
   <!--   <div class='commercialbox com20'></div>
     <div class='commercialbox com19'></div>
     <div class='commercialbox com18'></div>
@@ -63,36 +130,7 @@
     <div class='commercialbox com1'></div>  -->
 
     <!-- Block A -->
-    @for($i = 1; $i <= 37; $i++)
-
-        @foreach($getData as $data)
-            
-            @if($data->block->name == 'A')
-
-
-                @if($i == 23 || $i == 36 || $i == 37)
-
-                    @if($data->unit_no == $i && $data->status == 'Booked')
-                        <div class='residentialboxA_customBooked res{{$i}}'></div>
-                    @else
-                        <div class='residentialboxA_custom res{{$i}}'></div>
-                    @endif
-
-                @else
-
-                    @if($data->unit_no == $i && $data->status == 'Booked')
-                        <div class='residentialboxABooked res{{$i}}'></div>
-                    @else
-                        <div class='residentialboxA res{{$i}}'></div>
-                    @endif
-
-                @endif
-
-            @endif
-
-        @endforeach
     
-    @endfor
     <!-- <div class='residentialboxA res1'></div>
     <div class='residentialboxA res2'></div>
     <div class='residentialboxA res3'></div>
@@ -135,7 +173,67 @@
     <!-- Block A End -->
 
     <!-- Block C -->
-    <div class='residentialboxC res_C1'></div>
+    @for($x = 1; $x <= 30; $x++)
+        @foreach($getData as $data)
+            @if($data->block->name == 'C')
+
+                @if($data->unit_no <= 30)
+
+                    @if($data->unit_no == $x && $data->status == 'Booked')
+                        <div class='residentialboxCBooked res_C{{$data->unit_no}}'></div>
+                    @else
+                        @if($data->status == 'Booked')
+                            <div class='residentialboxCBooked res_C{{$data->unit_no}}'></div>
+                        @else
+                            <div class='residentialboxC res_C{{$x}}'></div>
+                        @endif
+                    @endif
+
+                @endif
+            @else
+                <div class='residentialboxC res_C{{$x}}'></div>
+            @endif
+        @endforeach
+    @endfor
+
+<!-- Block C 2 -->
+
+    @for($i = 31; $i <= 43; $i++)
+        @foreach($getData as $data)
+            @if($data->block->name == 'C')
+
+                @if($data->unit_no > 30 && $data->unit_no <= 43)
+                    
+                    @if($i == 31 || $i == 42 || $i == 43)
+
+                        @if($data->unit_no == $i && $data->status == 'Booked')
+                            <div class='residentialboxC_custom2Booked res_C{{$i}}'></div>
+                            @break
+                        @else
+                            <div class='residentialboxC_custom2 res_C{{$i}}'></div>
+                            
+                        @endif
+
+                    @else
+                        @if($data->unit_no == $i && $data->status == 'Booked')
+                            <div class='residentialboxC_customBooked res_C{{$i}}'></div>
+                            @break
+                        @else
+                            <div class='residentialboxC_custom res_C{{$i}}'></div>
+
+                        @endif
+                    
+                    @endif
+                
+                @endif
+
+            @else
+            @endif
+        @endforeach
+    @endfor
+
+
+    <!-- <div class='residentialboxC res_C1'></div>
     <div class='residentialboxC res_C2'></div>
     <div class='residentialboxC res_C3'></div>
     <div class='residentialboxC res_C4'></div>
@@ -167,8 +265,11 @@
     <div class='residentialboxC res_C28'></div>
     <div class='residentialboxC res_C29'></div>
     <div class='residentialboxC res_C30'></div>
+ -->
 
-    <div class='residentialboxC_custom2 res_C31'></div>
+
+
+<!--     <div class='residentialboxC_custom2 res_C31'></div>
     <div class='residentialboxC_custom res_C32'></div>
     <div class='residentialboxC_custom res_C33'></div>
     <div class='residentialboxC_custom res_C34'></div>
@@ -180,20 +281,95 @@
     <div class='residentialboxC_custom res_C40'></div>
     <div class='residentialboxC_custom res_C41'></div>
     <div class='residentialboxC_custom2 res_C42'></div>
-    <div class='residentialboxC_custom2 res_C43'></div>
+    <div class='residentialboxC_custom2 res_C43'></div> -->
 
     <!-- D block -->
-    <div class='residentialboxD res_D1'></div>
+    @for($i = 1; $i <= 3; $i++)
+        @foreach($getData as $data)
+            @if($data->block->name == 'D')
+
+               @if($data->unit_no == $i && $data->status == 'Booked')
+                    <div class='residentialboxDBooked res_D{{$i}}'></div>
+                    @break
+               @else
+                    <div class='residentialboxD res_D{{$i}}'></div>
+
+               @endif
+
+            @else
+            @endif
+        @endforeach
+    @endfor
+<!--     <div class='residentialboxD res_D1'></div>
     <div class='residentialboxD res_D2'></div>
-    <div class='residentialboxD res_D3'></div>
+    <div class='residentialboxD res_D3'></div> -->
     <!-- D Block End -->
 
-    <div class='residentialboxC res_C44'></div>
+    <!-- Block C 3 -->
+    @for($i = 44; $i <= 47; $i++)
+        @foreach($getData as $data)
+            @if($data->block->name == 'C')
+
+                @if($data->unit_no > 43 && $data->unit_no <= 47)
+
+                    @if($data->unit_no == $i && $data->status == 'Booked')
+                        <div class='residentialboxCBooked res_C{{$i}}'></div>
+                        @break
+                    @else
+                        <div class='residentialboxC res_C{{$i}}'></div>
+                        
+                    @endif
+
+                @endif
+
+            @else
+            @endif
+        @endforeach
+    @endfor
+
+<!--     <div class='residentialboxC res_C44'></div>
     <div class='residentialboxC res_C45'></div>
     <div class='residentialboxC res_C46'></div>
-    <div class='residentialboxC res_C47'></div>
+    <div class='residentialboxC res_C47'></div> -->
 
-    <div class='residentialboxC res_C48'></div>
+
+
+    <!-- Block C4 -->
+    @for($i = 48; $i <= 61; $i++)
+        @foreach($getData as $data)
+            @if($data->block->name == 'C')
+
+                @if($data->unit_no > 47 && $data->unit_no <= 61)
+                    
+                    @if($i == 51 || $i == 52 || $i == 53)
+                        @if($data->unit_no == $i && $data->status == 'Booked')
+                            <div class='residentialboxC_custom3Booked res_C{{$i}}'></div>
+                            @break
+                        @else
+                            <div class='residentialboxC_custom3 res_C{{$i}}'></div>
+                            
+                        @endif
+                    @else
+                        @if($data->unit_no == $i && $data->status == 'Booked')
+                            <div class='residentialboxCBooked res_C{{$i}}'></div>
+                            @break
+                        @else
+                            <div class='residentialboxC res_C{{$i}}'></div>
+
+                        @endif
+                    
+                    @endif
+                
+                @endif
+
+            @else
+            @endif
+        @endforeach
+    @endfor
+
+    
+
+<!--     <div class='residentialboxC res_C48'></div>
     <div class='residentialboxC res_C49'></div>
     <div class='residentialboxC res_C50'></div>
     <div class='residentialboxC_custom3 res_C51'></div>
@@ -207,8 +383,14 @@
     <div class='residentialboxC res_C58'></div>
     <div class='residentialboxC res_C59'></div>
     <div class='residentialboxC res_C60'></div>
-    <div class='residentialboxC res_C61'></div>
+    <div class='residentialboxC res_C61'></div> -->
 
 </div>
 </body>
+
+<script type="text/javascript">
+    setTimeout(function(){
+   window.location.reload(1);
+}, 5000);
+</script>
 </html>

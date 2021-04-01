@@ -39,7 +39,7 @@
     height: 38px;
     position: absolute
 }
-.residentialboxC {
+.residentialboxC, .residentialboxCBooked {
     border: 1px solid black;
     width: 82px;
     height: 44px;
@@ -68,7 +68,7 @@
     transform: rotate(-2deg);
 }
 
-.residentialboxC_custom {
+.residentialboxC_custom, .residentialboxC_customBooked {
     border: 1px solid black;
     width: 44px;
     height: 82px;
@@ -98,21 +98,21 @@
     transform: rotate(-2deg);
 }
 
-.residentialboxC_custom2 {
+.residentialboxC_custom2, .residentialboxC_custom2Booked {
     border: 1px solid black;
     width: 65px;
     height: 56px;
     position: absolute
 }
 
-.residentialboxC_custom3{
+.residentialboxC_custom3, .residentialboxC_custom3Booked{
     border: 1px solid black;
     width: 55px;
     height: 71px;
     position: absolute
 }
 
-.residentialboxD {
+.residentialboxD, .residentialboxDBooked {
     border: 1px solid black;
     width: 119px;
     height: 65px;
@@ -652,7 +652,7 @@ img {
     opacity: 0.7;
 }
 
-.commercialboxBooked:hover, .residentialboxABooked:hover, .residentialboxA_customBooked:hover {
+.commercialboxBooked:hover, .residentialboxABooked:hover, .residentialboxA_customBooked:hover, .residentialboxCBooked:hover, .residentialboxC_custom2Booked:hover, .residentialboxC_customBooked:hover, .residentialboxDBooked:hover, .residentialboxC_custom3Booked:hover, .residentialboxC_customOutSizes37Booked:hover {
     background-color: red;
     opacity: 0.7;   
 }

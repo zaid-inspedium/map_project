@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>The Project</title>
-    <meta http-equiv="refresh" content="5; URL=http://localhost/map_project/">
+    <!-- <meta http-equiv="refresh" content="5; URL=http://localhost/map_project/"> -->
 	<link rel="stylesheet" type="text/css" href="{{ asset('public/css/style.css') }}" />
 </head>
 <style>
@@ -53,7 +53,23 @@ legend {
                 <p style="width:4px; background-color: green; padding:12px;"></p>
             </div>
             <div class="column">
-                <p><strong>Vacant</strong></p>
+                <p><strong>Available</strong></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column">
+                <p style="width:4px; background-color: blue; padding:12px;"></p>
+            </div>
+            <div class="column">
+                <p><strong>Hold</strong></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column">
+                <p style="width:4px; background-color: yellow; padding:12px;"></p>
+            </div>
+            <div class="column">
+                <p><strong>For resale</strong></p>
             </div>
         </div>
      </fieldset>
@@ -62,17 +78,33 @@ legend {
     @for($x = 1; $x <= 20; $x++)
         @foreach($getData as $data)
             @if($data->block->name == 'SA')
+                
                 @if($data->unit_no == $x && $data->status == 'Booked')
+                    
                     <div class='commercialboxBooked com{{$data->unit_no}}'></div>
+
+                @elseif($data->unit_no == $x && $data->status == 'Hold')
+                    
+                    <div class='commercialboxHold com{{$data->unit_no}}'></div>
+                    @break
+
+                @elseif($data->unit_no == $x && $data->status == 'ForSale')
+                    
+                    <div class='commercialboxForSale com{{$data->unit_no}}'></div>
+                    @break
                 @else
+
                     @if($data->status == 'Booked')
                         <div class='commercialboxBooked com{{$data->unit_no}}'></div>
                     @else
                         <div class='commercialbox com{{$x}}'></div>
                     @endif
+                
                 @endif
             @else
+
                 <div class='commercialbox com{{$x}}'></div>
+            
             @endif
         @endforeach
     @endfor
@@ -87,6 +119,12 @@ legend {
                     @if($data->unit_no == $i && $data->status == 'Booked')
                         <div class='residentialboxA_customBooked res{{$i}}'></div>
                         @break
+                    @elseif($data->unit_no == $i && $data->status == 'Hold')
+                        <div class='residentialboxA_customHold res{{$i}}'></div>
+                        @break
+                    @elseif($data->unit_no == $i && $data->status == 'ForSale')
+                        <div class='residentialboxA_customForSale res{{$i}}'></div>
+                        @break
                     @else
                         <div class='residentialboxA_custom res{{$i}}'></div>
                     @endif
@@ -94,6 +132,12 @@ legend {
                 @else
                     @if($data->unit_no == $i && $data->status == 'Booked')
                         <div class='residentialboxABooked res{{$i}}'></div>
+                        @break
+                    @elseif($data->unit_no == $i && $data->status == 'Hold')
+                        <div class='residentialboxAHold res{{$i}}'></div>
+                        @break
+                    @elseif($data->unit_no == $i && $data->status == 'ForSale')
+                        <div class='residentialboxAForSale res{{$i}}'></div>
                         @break
                     @else
                         <div class='residentialboxA res{{$i}}'></div>
@@ -181,6 +225,13 @@ legend {
 
                     @if($data->unit_no == $x && $data->status == 'Booked')
                         <div class='residentialboxCBooked res_C{{$data->unit_no}}'></div>
+                        @break
+                    @elseif($data->unit_no == $x && $data->status == 'Hold')
+                        <div class='residentialboxCHold res_C{{$data->unit_no}}'></div>
+                        @break
+                    @elseif($data->unit_no == $x && $data->status == 'ForSale')
+                        <div class='residentialboxCForSale res_C{{$data->unit_no}}'></div>
+                        @break
                     @else
                         @if($data->status == 'Booked')
                             <div class='residentialboxCBooked res_C{{$data->unit_no}}'></div>
@@ -388,9 +439,9 @@ legend {
 </div>
 </body>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     setTimeout(function(){
    window.location.reload(1);
 }, 5000);
-</script>
+</script> -->
 </html>

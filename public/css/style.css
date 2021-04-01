@@ -19,7 +19,7 @@
     left: 70px;
     position: absolute
 }
-.commercialbox,.commercialboxBooked {
+.commercialbox,.commercialboxBooked, .commercialboxHold, .commercialboxForSale {
     border: 1px solid black;
     width: 36px;
     height: 36px;
@@ -27,19 +27,19 @@
     transform: rotate(17deg);
     
 }
-.residentialboxA, .residentialboxABooked {
+.residentialboxA, .residentialboxABooked, .residentialboxAHold, .residentialboxAForSale {
     border: 1px solid black;
     width: 55px;
     height: 25px;
     position: absolute
 }
-.residentialboxA_custom, .residentialboxA_customBooked {
+.residentialboxA_custom, .residentialboxA_customBooked, .residentialboxA_customHold, .residentialboxA_customForSale {
     border: 1px solid black;
     width: 35px;
     height: 38px;
     position: absolute
 }
-.residentialboxC, .residentialboxCBooked {
+.residentialboxC, .residentialboxCBooked, .residentialboxCHold, .residentialboxCForSale {
     border: 1px solid black;
     width: 82px;
     height: 44px;
@@ -655,6 +655,16 @@ img {
 .commercialboxBooked:hover, .residentialboxABooked:hover, .residentialboxA_customBooked:hover, .residentialboxCBooked:hover, .residentialboxC_custom2Booked:hover, .residentialboxC_customBooked:hover, .residentialboxDBooked:hover, .residentialboxC_custom3Booked:hover, .residentialboxC_customOutSizes37Booked:hover {
     background-color: red;
     opacity: 0.7;   
+}
+
+.commercialboxHold:hover, .residentialboxA_customHold:hover, .residentialboxAHold:hover, .residentialboxCHold:hover {
+    background-color: blue;
+    opacity: 0.7;   
+}
+
+.commercialboxForSale:hover, .residentialboxA_customForSale:hover, .residentialboxAForSale:hover, .residentialboxCForSale:hover{
+    background-color: yellow;
+    opacity: 0.7;      
 }
 
 /*.com20:hover {

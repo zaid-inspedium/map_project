@@ -54,12 +54,10 @@
                                                         </div>
                                                     </div>
 
-
-
                                                     <div class="col-md-4 col-12">
                                                         <div class="form-label-group">
                                                             <select id="status" name="status" class="form-control" required>
-                                                                <option value="">- Select Block -</option>
+                                                                <option value="">- Select Status -</option>
                                                                 @if($agent->status == 'Active')
                                                                     <option value="Active" selected>Active</option>
                                                                     <option value="Inactive">Inactive</option>

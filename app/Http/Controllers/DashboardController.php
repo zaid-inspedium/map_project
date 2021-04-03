@@ -6,6 +6,8 @@ use App\Models\Booking;
 use App\Models\Agent;
 use App\Models\Block;
 use Illuminate\Http\Request;
+use App\Models\SystemSetting;
+use Auth;
 
 class DashboardController extends Controller
 {
@@ -19,7 +21,14 @@ class DashboardController extends Controller
         $agents = Agent::get();
         $blocks = Block::get();
 
-        $data = Booking::select('bookings.id',
+        $check_superadminrole = SystemSetting::where('setting_name','=','SuperAdmin_role')->first();
+        $check_sysadminrole = SystemSetting::where('setting_name','=','SystemAdmin_role')->first();
+
+        if(Auth::user()->role_id == $check_superadminrole->setting_option || Auth::user()->role_id == $check_sysadminrole->setting_option){
+
+          //superadmin or systemadmin logged in
+
+          $data = Booking::select('bookings.id',
             'bookings.booking_date',
             'agents.name as agent_name',
             'blocks.name as block_name',
@@ -28,13 +37,45 @@ class DashboardController extends Controller
             'bookings.applicant_name',
             'bookings.cnic',
             'bookings.phone_no',
+            'bookings.plot_type',
+            'bookings.unit_specs',
+            'bookings.mode',
             'bookings.booking_amount',
             'bookings.remaining_amount',
             'bookings.status',
             'bookings.created_at')
                         ->leftjoin('agents','agents.id','=','bookings.agent_id')
                         ->leftjoin('blocks','blocks.id','=','bookings.block_id')
+                        ->orderby('bookings.booking_date','DESC')
                         ->get();
+
+        }else{
+
+          $data = Booking::select('bookings.id',
+            'bookings.booking_date',
+            'agents.name as agent_name',
+            'blocks.name as block_name',
+            'bookings.plot_size',
+            'bookings.unit_no',
+            'bookings.applicant_name',
+            'bookings.cnic',
+            'bookings.phone_no',
+            'bookings.plot_type',
+            'bookings.unit_specs',
+            'bookings.mode',
+            'bookings.booking_amount',
+            'bookings.remaining_amount',
+            'bookings.status',
+            'bookings.created_at')
+                        ->leftjoin('agents','agents.id','=','bookings.agent_id')
+                        ->leftjoin('blocks','blocks.id','=','bookings.block_id')
+                        ->where('bookings.created_by','=',Auth::user()->id)
+                        ->orderby('bookings.booking_date','DESC')
+                        ->get();
+
+
+
+        }
 
         // print_r($data);
         return view('admin.dashboard-admin', compact('data','agents','blocks'));
@@ -61,6 +102,7 @@ class DashboardController extends Controller
         $new->booking_amount = $request->booking_amount;
         $new->remaining_amount = $request->remaining_amount;
         $new->status = $request->status;
+        $new->created_by = Auth::user()->id;
 
         $new->save();
 

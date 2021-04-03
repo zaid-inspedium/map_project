@@ -68,7 +68,7 @@
     transform: rotate(-2deg);
 }
 
-.residentialboxC_custom, .residentialboxC_customBooked {
+.residentialboxC_custom, .residentialboxC_customBooked, .residentialboxC_customHold, .residentialboxC_customForSale {
     border: 1px solid black;
     width: 44px;
     height: 82px;
@@ -98,21 +98,21 @@
     transform: rotate(-2deg);
 }
 
-.residentialboxC_custom2, .residentialboxC_custom2Booked {
+.residentialboxC_custom2, .residentialboxC_custom2Booked, .residentialboxC_custom2Hold, .residentialboxC_custom2ForSale{
     border: 1px solid black;
     width: 65px;
     height: 56px;
     position: absolute
 }
 
-.residentialboxC_custom3, .residentialboxC_custom3Booked{
+.residentialboxC_custom3, .residentialboxC_custom3Booked, .residentialboxC_custom3Hold, .residentialboxC_custom3ForSale{
     border: 1px solid black;
     width: 55px;
     height: 71px;
     position: absolute
 }
 
-.residentialboxD, .residentialboxDBooked {
+.residentialboxD, .residentialboxDBooked, .residentialboxDHold, .residentialboxDForSale {
     border: 1px solid black;
     width: 119px;
     height: 65px;
@@ -657,12 +657,12 @@ img {
     opacity: 0.7;   
 }
 
-.commercialboxHold:hover, .residentialboxA_customHold:hover, .residentialboxAHold:hover, .residentialboxCHold:hover {
+.commercialboxHold:hover, .residentialboxA_customHold:hover, .residentialboxAHold:hover, .residentialboxCHold:hover, .residentialboxC_custom2Hold:hover, .residentialboxC_customHold:hover, .residentialboxDHold:hover, .residentialboxC_custom3Hold:hover {
     background-color: blue;
     opacity: 0.7;   
 }
 
-.commercialboxForSale:hover, .residentialboxA_customForSale:hover, .residentialboxAForSale:hover, .residentialboxCForSale:hover{
+.commercialboxForSale:hover, .residentialboxA_customForSale:hover, .residentialboxAForSale:hover, .residentialboxCForSale:hover, .residentialboxC_custom2ForSale:hover, .residentialboxC_customForSale:hover, .residentialboxDForSale:hover, .residentialboxC_custom3ForSale:hover {
     background-color: yellow;
     opacity: 0.7;      
 }

@@ -99,8 +99,19 @@
         <form action="{{route('add_agent')}}" method="POST">
           @csrf
       <div class="modal-body">
+
         <label for="name"><strong>Name</strong></label>
         <input id="name" placeholder="Enter Name" class="form-control" type="text" name="name" required>
+
+        <label for="email"><strong>Email</strong></label>
+        <input id="email" placeholder="Enter Email" class="form-control" type="email" name="email" required>
+
+        <label for="Username"><strong>Username</strong></label>
+        <input id="Username" placeholder="Enter Username" class="form-control" type="text" name="username" required>
+
+        <label for="Password"><strong>Password</strong></label>
+        <input id="Password" placeholder="Enter Password" class="form-control" type="password" name="password" required>
+
         <label for="status"><strong>Status</strong></label>
         <select id="status" name="status" class="form-control" required>
             <option value="">- Select Status -</option>

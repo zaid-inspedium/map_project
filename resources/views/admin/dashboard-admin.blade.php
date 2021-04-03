@@ -52,16 +52,16 @@
                             <input class="form-control" id="myInput" type="text" placeholder="Search..">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
+                                           
                                             <th>BOOKING DATE</th>
                                             <th>AGENT</th>
-                                            <th>PLOT SIZE - Square Yards (Gazz) </th>
-                                            <th>APPLICANT NAME</th>
-                                            <th>PHONE NO</th>
-                                            <th>BOOKING AMOUNT</th>
-                                            <th>REMAINING AMOUNT</th>
+                                            <th>PLOT SIZE - Square Yards (Gz) </th>
+                                            <th>PARTY NAME</th>
+                                            <th>PLOT TYPE</th>
+                                            <th>SPECIFICATION</th>
+                                            <th>MODE</th>
                                             <th>STATUS</th>
-                                            <th>CREATED AT</th>
+                                            
                                             <th>ACTIONS</th>
                                         </tr>
                                     </thead>
@@ -69,14 +69,14 @@
                             <?php $i = 1; ?>
                             @foreach($data as $d)
                                 <tr>
-                                    <td>{{$i++}}</td>
+                                   
                                     <td class="product-name">{{ date('d-m-Y',strtotime($d->booking_date)) }}</td>
                                     <td class="product-name"><strong>{{ $d->agent_name }}</strong></td>
                                     <td class="product-name">{{ $d->plot_size }} <em class="text-primary font-small-2">yd2</em></td>
                                     <td class="product-name">{{ $d->applicant_name }}</td>
-                                    <td class="product-name">{{ $d->phone_no }}</td>
-                                    <td class="product-name">{{ number_format($d->booking_amount) }}</td>
-                                    <td class="product-name">{{ number_format($d->remaining_amount) }}</td>
+                                    <td class="product-name">{{ $d->plot_type }}</td>
+                                    <td class="product-name">{{ $d->unit_specs }}</td>
+                                    <td class="product-name">{{ $d->mode }}</td>
                                     <td class="product-name">
                                     @if($d->status == "Booked")    
                                         <div class="chip chip-primary mr-1">
@@ -92,7 +92,7 @@
                                         </div>
                                     @endif
                                     </td>
-                                    <td class="product-name">{{ $d->created_at }}</td>
+                                   
                                     <td>
                                         <div class="">
                                         <a href="{{ route('dashboard.edit', $d->id) }}" id="{{ $d->id }}" class="btn btn-primary dynamic_booking" style="color: white;" data-toggle="modal" data-target="#viewBooking">
@@ -102,7 +102,7 @@
                                           <i class="fa fa-edit"></i> Edit
                                         </a>
                                         <a href="{{ route('booking_del', $d->id) }}" class="btn btn-danger" style="color: white;">
-                                          <i class="fa fa-trash"></i> Cancel
+                                          <i class="fa fa-trash"></i> Remove
                                         </a>
                                         </div>
                                     </td>

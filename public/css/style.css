@@ -19,31 +19,159 @@
     left: 70px;
     position: absolute
 }
-.commercialbox,.commercialboxBooked, .commercialboxHold, .commercialboxForSale {
+.commercialboxHold{
     border: 1px solid black;
     width: 36px;
     height: 36px;
     position: absolute;
+    background-color: rgb(65,105,225);
+    transform: rotate(17deg);
+    opacity: 0.7;
+    text-align: center;
+}
+.commercialboxForSale{
+    border: 1px solid black;
+    width: 36px;
+    height: 36px;
+    position: absolute;
+    background-color: yellow;
+    transform: rotate(17deg);
+    opacity: 0.7;
+    text-align: center;
+}
+.commercialboxBooked{
+    border: 1px solid black;
+    width: 36px;
+    height: 36px;
+    position: absolute;
+    background-color: rgb(255,99,71);
+    opacity: 0.7;
+    text-align: center;
+    transform: rotate(17deg);
+
+}
+.commercialbox {
+    border: 1px solid black;
+    width: 36px;
+    height: 36px;
+    position: absolute;
+    background-color: rgb(60,179,113);
+    opacity: 0.7;
+    text-align: center;
     transform: rotate(17deg);
     
 }
-.residentialboxA, .residentialboxABooked, .residentialboxAHold, .residentialboxAForSale {
+.residentialboxABooked{
     border: 1px solid black;
     width: 55px;
+    text-align: center;
     height: 25px;
-    position: absolute
+    position: absolute;
+    background-color: rgb(255,99,71);
+    
 }
-.residentialboxA_custom, .residentialboxA_customBooked, .residentialboxA_customHold, .residentialboxA_customForSale {
+
+.residentialboxAHold{
     border: 1px solid black;
+    width: 55px;
+    text-align: center;
+    height: 25px;
+    position: absolute;
+    background-color: rgb(65,105,225);
+    
+}
+.residentialboxAForSale{
+    border: 1px solid black;
+    width: 55px;
+    text-align: center;
+    height: 25px;
+    position: absolute;
+    background-color: yellow;
+    opacity: 0.7;
+}
+
+.residentialboxA {
+    border: 1px solid black;
+    width: 55px;
+    text-align: center;
+    height: 25px;
+    position: absolute;
+    background-color: rgb(60,179,113);
+    opacity: 0.7;
+}
+.residentialboxA_customBooked{
+    border: 1px solid black;
+    text-align: center;
     width: 35px;
     height: 38px;
     position: absolute
+    background-color: rgb(255,99,71);
+    opacity: 0.7;
 }
-.residentialboxC, .residentialboxCBooked, .residentialboxCHold, .residentialboxCForSale {
+
+.residentialboxA_customHold{
+    border: 1px solid black;
+    width: 35px;
+    text-align: center;
+    height: 38px;
+    position: absolute
+    background-color: rgb(65,105,225);
+    
+}
+
+.residentialboxA_customForSale{
+    border: 1px solid black;
+    text-align: center;
+    width: 35px;
+    height: 38px;
+    position: absolute
+    background-color: yellow;
+    opacity: 0.7;
+}
+
+.residentialboxA_custom{
+    border: 1px solid black;
+    width: 35px;
+    text-align: center;
+    height: 38px;
+    position: absolute;
+    background-color: rgb(60,179,113);
+    opacity: 0.7;
+}
+
+.residentialboxCBooked{
+    border: 1px solid black;
+    width: 82px;
+    text-align: center;
+    height: 44px;
+    position: absolute;
+    background-color: rgb(255,99,71);
+}
+
+.residentialboxCHold{
+    border: 1px solid black;
+    width: 82px;
+    text-align: center;
+    height: 44px;
+    position: absolute;
+    background-color: rgb(65,105,225);
+}
+.residentialboxCForSale{
     border: 1px solid black;
     width: 82px;
     height: 44px;
-    position: absolute
+    text-align: center;
+    position: absolute;
+    background-color: yellow;
+}
+
+.residentialboxC {
+    border: 1px solid black;
+    width: 82px;
+    text-align: center;
+    height: 44px;
+    position: absolute;
+    background-color: rgb(60,179,113);
 }
 
 .residentialboxCExtraSize {
@@ -68,11 +196,40 @@
     transform: rotate(-2deg);
 }
 
-.residentialboxC_custom, .residentialboxC_customBooked, .residentialboxC_customHold, .residentialboxC_customForSale {
+.residentialboxC_customBooked{
     border: 1px solid black;
+    text-align: center;
     width: 44px;
     height: 82px;
-    position: absolute
+    position: absolute;
+    background-color: rgb(255,99,71);
+}
+
+.residentialboxC_customHold{
+    border: 1px solid black;
+    width: 44px;
+    text-align: center;
+    height: 82px;
+    position: absolute;
+    background-color: rgb(65,105,225);
+}
+
+.residentialboxC_customForSale{
+    border: 1px solid black;
+    width: 44px;
+    text-align: center;
+    height: 82px;
+    position: absolute;
+    background-color: yellow;
+}
+
+.residentialboxC_custom {
+    border: 1px solid black;
+    width: 44px;
+    text-align: center;
+    height: 82px;
+    position: absolute;
+    background-color: rgb(60,179,113);
 }
 
 .residentialboxC_customOutSizes {
@@ -98,25 +255,109 @@
     transform: rotate(-2deg);
 }
 
-.residentialboxC_custom2, .residentialboxC_custom2Booked, .residentialboxC_custom2Hold, .residentialboxC_custom2ForSale{
+.residentialboxC_custom2Booked{
     border: 1px solid black;
+    text-align: center;
     width: 65px;
     height: 56px;
-    position: absolute
+    position: absolute;
+    background-color: rgb(255,99,71);
+}
+.residentialboxC_custom2ForSale{
+    border: 1px solid black;
+    width: 65px;
+    text-align: center;
+    height: 56px;
+    position: absolute;
+    background-color:yellow;
+}
+.residentialboxC_custom2Hold{
+    border: 1px solid black;
+    width: 65px;
+    text-align: center;
+    height: 56px;
+    position: absolute;
+    background-color: rgb(65,105,225);
 }
 
-.residentialboxC_custom3, .residentialboxC_custom3Booked, .residentialboxC_custom3Hold, .residentialboxC_custom3ForSale{
+.residentialboxC_custom2{
     border: 1px solid black;
+    width: 65px;
+    text-align: center;
+    height: 56px;
+    position: absolute;
+    background-color: rgb(60,179,113);
+}
+
+.residentialboxC_custom3Booked{
+    border: 1px solid black;
+    text-align: center;
     width: 55px;
     height: 71px;
-    position: absolute
+    position: absolute;
+    background-color: rgb(255,99,71);
 }
 
-.residentialboxD, .residentialboxDBooked, .residentialboxDHold, .residentialboxDForSale {
+.residentialboxC_custom3Hold{
+    border: 1px solid black;
+    width: 55px;
+    text-align: center;
+    height: 71px;
+    position: absolute;
+    background-color: rgb(65,105,225);
+}
+
+.residentialboxC_custom3ForSale{
+    border: 1px solid black;
+    width: 55px;
+    text-align: center;
+    height: 71px;
+    position: absolute;
+    background-color: yellow;
+}
+
+.residentialboxC_custom3{
+    border: 1px solid black;
+    text-align: center;
+    width: 55px;
+    height: 71px;
+    position: absolute;
+    background-color: rgb(60,179,113);
+}
+
+.residentialboxDBooked{
     border: 1px solid black;
     width: 119px;
+    text-align: center;
     height: 65px;
-    position: absolute
+    position: absolute;
+    background-color:rgb(255,99,71);
+}
+.residentialboxDHold{
+    border: 1px solid black;
+    width: 119px;
+    text-align: center;
+    height: 65px;
+    position: absolute;
+    background-color: rgb(65,105,225);
+}
+
+.residentialboxDForSale{
+    border: 1px solid black;
+    width: 119px;
+    text-align: center;
+    height: 65px;
+    position: absolute;
+    background-color: yellow;
+}
+
+.residentialboxD {
+    border: 1px solid black;
+    width: 119px;
+    text-align: center;
+    height: 65px;
+    position: absolute;
+    background-color: rgb(60,179,113);
 }
 
 
@@ -128,6 +369,7 @@
 .com19 {
     top: 184px;
     left: 335px;
+
 }
 
 .com18 {
@@ -631,7 +873,7 @@
 .foot {
     width: 60px;
     height: 90px;
-    border: 1px solid green;
+    border: 1px solid rgb(60,179,113);
     top: 110px;
     left: 200px;
     position: absolute
@@ -641,54 +883,54 @@ img {
     height: auto;
 }
 .face:hover {
-    background-color: red;
+    background-color: rgb(255,99,71);
 }
 .face2:hover {
     background-color: yellow;
 }
 
-.commercialbox:hover, .residentialboxA:hover, .residentialboxA_custom:hover, .residentialboxC:hover, .residentialboxCExtraSize:hover, .residentialboxCExtraSize2:hover, .residentialboxCExtraSize3:hover, .residentialboxC_custom:hover, .residentialboxC_customOutSizes:hover, .residentialboxC_customOutSizes36:hover, .residentialboxC_customOutSizes37:hover, .residentialboxC_custom2:hover, .residentialboxC_custom3:hover, .residentialboxD:hover {
-    background-color: green;
+.residentialboxCExtraSize:hover, .residentialboxCExtraSize2:hover, .residentialboxCExtraSize3:hover, .residentialboxC_customOutSizes:hover, .residentialboxC_customOutSizes36:hover, .residentialboxC_customOutSizes37:hover  {
+    background-color: rgb(60,179,113);
     opacity: 0.7;
 }
 
-.commercialboxBooked:hover, .residentialboxABooked:hover, .residentialboxA_customBooked:hover, .residentialboxCBooked:hover, .residentialboxC_custom2Booked:hover, .residentialboxC_customBooked:hover, .residentialboxDBooked:hover, .residentialboxC_custom3Booked:hover, .residentialboxC_customOutSizes37Booked:hover {
-    background-color: red;
+.residentialboxC_customOutSizes37Booked:hover {
+    background-color: rgb(255,99,71);
     opacity: 0.7;   
 }
 
-.commercialboxHold:hover, .residentialboxA_customHold:hover, .residentialboxAHold:hover, .residentialboxCHold:hover, .residentialboxC_custom2Hold:hover, .residentialboxC_customHold:hover, .residentialboxDHold:hover, .residentialboxC_custom3Hold:hover {
-    background-color: blue;
+.commercialboxHold:hover {
+    background-color: rgb(65,105,225);
     opacity: 0.7;   
 }
 
-.commercialboxForSale:hover, .residentialboxA_customForSale:hover, .residentialboxAForSale:hover, .residentialboxCForSale:hover, .residentialboxC_custom2ForSale:hover, .residentialboxC_customForSale:hover, .residentialboxDForSale:hover, .residentialboxC_custom3ForSale:hover {
+.commercialboxForSale:hover {
     background-color: yellow;
     opacity: 0.7;      
 }
 
 /*.com20:hover {
-    background-color: blue;
+    background-color: rgb(65,105,225);
 }
 .com19:hover {
-    background-color: blue;
+    background-color: rgb(65,105,225);
 }
 .com18:hover {
-    background-color: blue;
+    background-color: rgb(65,105,225);
 }
 .com17:hover {
-    background-color: blue;
+    background-color: rgb(65,105,225);
 }
 .com16:hover {
-    background-color: blue;
+    background-color: rgb(65,105,225);
 }
 .com16:hover {
-    background-color: blue;
+    background-color: rgb(65,105,225);
 }
 .com16:hover {
-    background-color: blue;
+    background-color: rgb(65,105,225);
 }*/
 
 .foot:hover {
-    background-color: green;
+    background-color: rgb(60,179,113);
 }

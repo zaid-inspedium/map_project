@@ -47,7 +47,7 @@ legend {
       <legend><strong>Booking Status</strong></legend>
         <div class="row">
             <div class="column">
-                <p style="width:4px; background-color: red; padding:12px;"></p>
+                <p style="width:4px; background-color: rgb(255,99,71); padding:12px;"></p>
             </div>
             <div class="column">
                 <p><strong>Booked</strong></p>
@@ -55,7 +55,7 @@ legend {
         </div>
         <div class="row">
             <div class="column">
-                <p style="width:4px; background-color: green; padding:12px;"></p>
+                <p style="width:4px; background-color: rgb(60,179,113); padding:12px;"></p>
             </div>
             <div class="column">
                 <p><strong>Available</strong></p>
@@ -63,7 +63,7 @@ legend {
         </div>
         <div class="row">
             <div class="column">
-                <p style="width:4px; background-color: blue; padding:12px;"></p>
+                <p style="width:4px; background-color: rgb(65,105,225); padding:12px;"></p>
             </div>
             <div class="column">
                 <p><strong>Hold</strong></p>
@@ -86,29 +86,29 @@ legend {
                 
                 @if($data->unit_no == $x && $data->status == 'Booked')
                     
-                    <div class='commercialboxBooked com{{$data->unit_no}}'></div>
+                    <div class='commercialboxBooked com{{$data->unit_no}}'> &nbsp;&nbsp;SA {{$data->unit_no}}</div>
 
                 @elseif($data->unit_no == $x && $data->status == 'Hold')
                     
-                    <div class='commercialboxHold com{{$data->unit_no}}'></div>
+                    <div class='commercialboxHold com{{$data->unit_no}}'> &nbsp;&nbsp;SA {{$data->unit_no}}</div>
                     @break
 
                 @elseif($data->unit_no == $x && $data->status == 'ForSale')
                     
-                    <div class='commercialboxForSale com{{$data->unit_no}}'></div>
+                    <div class='commercialboxForSale com{{$data->unit_no}}'> &nbsp;&nbsp;SA {{$data->unit_no}}</div>
                     @break
                 @else
 
                     @if($data->status == 'Booked')
-                        <div class='commercialboxBooked com{{$data->unit_no}}'></div>
+                        <div class='commercialboxBooked com{{$data->unit_no}}'> &nbsp;&nbsp;SA {{$data->unit_no}}</div>
                     @else
-                        <div class='commercialbox com{{$x}}'></div>
+                        <div class='commercialbox com{{$x}}'> &nbsp;&nbsp;SA {{$data->unit_no}}</div>
                     @endif
                 
                 @endif
             @else
 
-                <div class='commercialbox com{{$x}}'></div>
+                <div class='commercialbox com{{$x}}'>&nbsp;&nbsp;SA {{$x}}</div>
             
             @endif
         @endforeach
@@ -122,30 +122,31 @@ legend {
                 @if($i == 23 || $i == 36 || $i == 37)
 
                     @if($data->unit_no == $i && $data->status == 'Booked')
-                        <div class='residentialboxA_customBooked res{{$i}}'></div>
+                        <div class='residentialboxA_customBooked res{{$i}}'>&nbsp;A {{$i}}</div>
                         @break
                     @elseif($data->unit_no == $i && $data->status == 'Hold')
-                        <div class='residentialboxA_customHold res{{$i}}'></div>
+                        <div class='residentialboxA_customHold res{{$i}}'>&nbsp;&nbsp;A {{$i}}</div>
                         @break
                     @elseif($data->unit_no == $i && $data->status == 'ForSale')
-                        <div class='residentialboxA_customForSale res{{$i}}'></div>
+                        <div class='residentialboxA_customForSale res{{$i}}'>&nbsp; &nbsp;A {{$i}}</div>
                         @break
                     @else
-                        <div class='residentialboxA_custom res{{$i}}'></div>
+                        <div class='residentialboxA_custom res{{$i}}'>&nbsp;A {{$i}}</div>
+                        @break
                     @endif
 
                 @else
                     @if($data->unit_no == $i && $data->status == 'Booked')
-                        <div class='residentialboxABooked res{{$i}}'></div>
+                        <div class='residentialboxABooked res{{$i}}'>&nbsp;&nbsp;A {{$i}}</div>
                         @break
                     @elseif($data->unit_no == $i && $data->status == 'Hold')
-                        <div class='residentialboxAHold res{{$i}}'></div>
+                        <div class='residentialboxAHold res{{$i}}'>&nbsp;&nbsp;A {{$i}}</div>
                         @break
                     @elseif($data->unit_no == $i && $data->status == 'ForSale')
-                        <div class='residentialboxAForSale res{{$i}}'></div>
+                        <div class='residentialboxAForSale res{{$i}}'>&nbsp;&nbsp;A {{$i}}</div>
                         @break
                     @else
-                        <div class='residentialboxA res{{$i}}'></div>
+                        <div class='residentialboxA res{{$i}}'>&nbsp;A {{$i}}</div>
                     @endif
                 @endif
             @else
@@ -163,25 +164,25 @@ legend {
                 @if($data->unit_no <= 30)
 
                     @if($data->unit_no == $x && $data->status == 'Booked')
-                        <div class='residentialboxCBooked res_C{{$data->unit_no}}'></div>
+                        <div class='residentialboxCBooked res_C{{$data->unit_no}}'>&nbsp;  &nbsp;C {{$x}}</div>
                         @break
                     @elseif($data->unit_no == $x && $data->status == 'Hold')
-                        <div class='residentialboxCHold res_C{{$data->unit_no}}'></div>
+                        <div class='residentialboxCHold res_C{{$data->unit_no}}'>&nbsp; &nbsp;C {{$x}}</div>
                         @break
                     @elseif($data->unit_no == $x && $data->status == 'ForSale')
-                        <div class='residentialboxCForSale res_C{{$data->unit_no}}'></div>
+                        <div class='residentialboxCForSale res_C{{$data->unit_no}}'>&nbsp;  &nbsp;C {{$x}}</div>
                         @break
                     @else
                         @if($data->status == 'Booked')
-                            <div class='residentialboxCBooked res_C{{$data->unit_no}}'></div>
+                            <div class='residentialboxCBooked res_C{{$data->unit_no}}'>&nbsp;  &nbsp;C {{$data->unit_no}}</div>
                         @else
-                            <div class='residentialboxC res_C{{$x}}'></div>
+                            <div class='residentialboxC res_C{{$x}}'>&nbsp; &nbsp;C {{$x}}</div>
                         @endif
                     @endif
 
                 @endif
             @else
-                <div class='residentialboxC res_C{{$x}}'></div>
+                <div class='residentialboxC res_C{{$x}}'>&nbsp;  &nbsp;C {{$x}}</div>
             @endif
         @endforeach
     @endfor
@@ -197,36 +198,36 @@ legend {
                     @if($i == 31 || $i == 42 || $i == 43)
 
                             @if($data->unit_no == $i && $data->status == 'Booked')
-                                <div class='residentialboxC_custom2Booked res_C{{$i}}'></div>
+                                <div class='residentialboxC_custom2Booked res_C{{$i}}'>C {{$data->unit_no}}</div>
                             @break
 
                             @elseif($data->unit_no == $i && $data->status == 'ForSale')
-                                <div class='residentialboxC_custom2ForSale res_C{{$i}}'></div>
+                                <div class='residentialboxC_custom2ForSale res_C{{$i}}'>C {{$data->unit_no}}</div>
                             @break
 
                             @elseif($data->unit_no == $i && $data->status == 'Hold')
-                                <div class='residentialboxC_custom2Hold res_C{{$i}}'></div>
+                                <div class='residentialboxC_custom2Hold res_C{{$i}}'>C {{$data->unit_no}}</div>
                             @break
 
                             @else
-                                <div class='residentialboxC_custom2 res_C{{$i}}'></div>  
+                                <div class='residentialboxC_custom2 res_C{{$i}}'>C {{$i}}</div>  
                             @endif
 
                     @else
                             @if($data->unit_no == $i && $data->status == 'Booked')
-                                <div class='residentialboxC_customBooked res_C{{$i}}'></div>
+                                <div class='residentialboxC_customBooked res_C{{$i}}'>C {{$i}}</div>
                             @break
 
                             @elseif($data->unit_no == $i && $data->status == 'ForSale')
-                                <div class='residentialboxC_customForSale res_C{{$i}}'></div>
+                                <div class='residentialboxC_customForSale res_C{{$i}}'>C {{$i}}</div>
                             @break
 
                             @elseif($data->unit_no == $i && $data->status == 'Hold')
-                                <div class='residentialboxC_customHold res_C{{$i}}'></div>
+                                <div class='residentialboxC_customHold res_C{{$i}}'>C {{$i}}</div>
                             @break
 
                             @else
-                                <div class='residentialboxC_custom res_C{{$i}}'></div>  
+                                <div class='residentialboxC_custom res_C{{$i}}'>C {{$i}}</div>  
                             @endif
                            
                     
@@ -246,19 +247,19 @@ legend {
             @if($data->block->name == 'D')
 
                @if($data->unit_no == $i && $data->status == 'Booked')
-                    <div class='residentialboxDBooked res_D{{$i}}'></div>
+                    <div class='residentialboxDBooked res_D{{$i}}'>D {{ $i}}</div>
                     @break
 
                 @elseif($data->unit_no == $i && $data->status == 'Hold')
-                    <div class='residentialboxDHold res_D{{$i}}'></div>
+                    <div class='residentialboxDHold res_D{{$i}}'>D  {{ $i}}</div>
                     @break
 
                 @elseif($data->unit_no == $i && $data->status == 'ForSale')
-                    <div class='residentialboxDForSale res_D{{$i}}'></div>
+                    <div class='residentialboxDForSale res_D{{$i}}'>D {{ $i }}</div>
                     @break
 
                @else
-                    <div class='residentialboxD res_D{{$i}}'></div>
+                    <div class='residentialboxD res_D{{$i}}'>D {{ $i }}</div>
 
                @endif
 
@@ -276,19 +277,19 @@ legend {
                 @if($data->unit_no > 43 && $data->unit_no <= 47)
 
                     @if($data->unit_no == $i && $data->status == 'Booked')
-                        <div class='residentialboxCBooked res_C{{$i}}'></div>
+                        <div class='residentialboxCBooked res_C{{$i}}'>C {{ $i }}</div>
                         @break
 
                     @elseif($data->unit_no == $i && $data->status == 'Hold')
-                        <div class='residentialboxCHold res_C{{$i}}'></div>
+                        <div class='residentialboxCHold res_C{{$i}}'>C {{ $i }}</div>
                         @break
 
                     @elseif($data->unit_no == $i && $data->status == 'ForSale')
-                        <div class='residentialboxCForSale res_C{{$i}}'></div>
+                        <div class='residentialboxCForSale res_C{{$i}}'>C {{ $i }}</div>
                         @break
 
                     @else
-                        <div class='residentialboxC res_C{{$i}}'></div>
+                        <div class='residentialboxC res_C{{$i}}'>C {{ $i }}</div>
                         
                     @endif
 
@@ -309,36 +310,36 @@ legend {
                     
                     @if($i == 51 || $i == 52 || $i == 53)
                         @if($data->unit_no == $i && $data->status == 'Booked')
-                            <div class='residentialboxC_custom3Booked res_C{{$i}}'></div>
+                            <div class='residentialboxC_custom3Booked res_C{{$i}}'>C {{$i}}</div>
                             @break
 
                         @elseif($data->unit_no == $i && $data->status == 'Hold')
-                            <div class='residentialboxC_custom3Hold res_C{{$i}}'></div>
+                            <div class='residentialboxC_custom3Hold res_C{{$i}}'>C {{$i}}</div>
                             @break
 
                         @elseif($data->unit_no == $i && $data->status == 'ForSale')
-                            <div class='residentialboxC_custom3ForSale res_C{{$i}}'></div>
+                            <div class='residentialboxC_custom3ForSale res_C{{$i}}'>C {{$i}}</div>
                             @break
 
                         @else
-                            <div class='residentialboxC_custom3 res_C{{$i}}'></div>
+                            <div class='residentialboxC_custom3 res_C{{$i}}'>C {{$i}}</div>
                             
                         @endif
                     @else
                         @if($data->unit_no == $i && $data->status == 'Booked')
-                            <div class='residentialboxCBooked res_C{{$i}}'></div>
+                            <div class='residentialboxCBooked res_C{{$i}}'>C {{$i}}</div>
                             @break
 
                         @elseif($data->unit_no == $i && $data->status == 'Hold')
-                            <div class='residentialboxCHold res_C{{$i}}'></div>
+                            <div class='residentialboxCHold res_C{{$i}}'>C {{$i}}</div>
                             @break
 
                         @elseif($data->unit_no == $i && $data->status == 'ForSale')
-                            <div class='residentialboxCForSale res_C{{$i}}'></div>
+                            <div class='residentialboxCForSale res_C{{$i}}'>C {{$i}}</div>
                             @break
 
                         @else
-                            <div class='residentialboxC res_C{{$i}}'></div>
+                            <div class='residentialboxC res_C{{$i}}'>C {{$i}}</div>
 
                         @endif
                     

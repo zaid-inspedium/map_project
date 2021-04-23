@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/', [App\Http\Controllers\FrontendController::class,'index']);
+// Route::get('/', [App\Http\Controllers\FrontendController::class,'index']);
 Route::resource('sign-up', App\Http\Controllers\SignupController::class);
 
 Route::get('/log-in', function () {
@@ -42,15 +42,22 @@ Route::get('/problem', function () {
 
 Route::group(['middleware' => 'auth'], function () {
 
-	   Route::get('/congratulations', function () {
+	Route::get('/congratulations', function () {
     return view('admin.congrats');
 });
+
+Route::get('/', [App\Http\Controllers\FrontendController::class,'index']);
+Route::get('/map', [App\Http\Controllers\FrontendController::class,'index']);
 
 Route::resource('redirect', App\Http\Controllers\RedirectController::class);
 Route::post('/back_to_home', [App\Http\Controllers\RedirectController::class,'force_logout'])->name('forced');
 Route::post('/log-out', [App\Http\Controllers\RedirectController::class,'log_out'])->name('log-out');
 
 Route::resource('dashboard', App\Http\Controllers\DashboardController::class);
+
+/*Booking Form Routes*/
+Route::get('/unit/book',[App\Http\Controllers\DashboardController::class,'unit_book'])->name('unit.book');
+
 Route::post('/add-booking', [App\Http\Controllers\DashboardController::class,'add_booking'])->name('add_booking');
 Route::post('/dashboard/update/{id}', [App\Http\Controllers\DashboardController::class,'update'])->name('booking_up');
 Route::get('/dashboard/destroy/{id}', [App\Http\Controllers\DashboardController::class, 'destroy'])->name('booking_del');
@@ -75,6 +82,7 @@ Route::post('/roles/update/{id}', [App\Http\Controllers\RolesController::class, 
 
 Route::resource('users', App\Http\Controllers\AdminUsersController::class);
 Route::post('/users/update/{id}', [App\Http\Controllers\AdminUsersController::class,'update'])->name('users_up');
+
 
 
 });

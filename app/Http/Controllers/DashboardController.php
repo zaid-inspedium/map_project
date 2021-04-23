@@ -6,6 +6,7 @@ use App\Models\Booking;
 use App\Models\Agent;
 use App\Models\Block;
 use Illuminate\Http\Request;
+use Brian2694\Toastr\Facades\Toastr;
 use App\Models\SystemSetting;
 use Auth;
 
@@ -216,6 +217,344 @@ class DashboardController extends Controller
           </div>';
         
         echo $output;
+
+    }
+
+    public function unit_book(Request $request){
+
+      //directly book from map
+
+      $unitNo = $request->get('unitNo');
+      $blockID = $request->get('blockID');
+      $block_data = Block::where('id',$blockID)->first();
+
+      $check_status = Booking::where('block_id','=',$blockID)->where('unit_no','=',$unitNo)->count();
+
+        if($check_status == 1){
+          //record exist in booking table
+          $get_data = Booking::where('block_id','=',$blockID)->where('unit_no','=',$unitNo)->first();
+
+          if($get_data->status == 'Available'){
+
+            $output = '';
+            $output .= '<form action = "AddBooking/'.$get_data->id.'" method = "post">';
+            $output .= '<input type = "hidden" name = "_token" value = "'.csrf_token().'">';
+            $output .= '<h4>Booking Area</h4>';
+            $output .= '<div class="col-md-4">';
+            $output .= '<label for="booking_date"><strong>Booking Date</strong></label>
+                          <input id="booking_date" class="form-control" type="date" name="booking_date" required>';
+            $output .= '</div>';
+            
+            $output .= '<div class="col-md-4">';
+            $output .= '<label for="block_id"><strong>Unit No</strong></label>
+                          <input id="block_id" class="form-control" type="hidden" value="'.$get_data->block_id.'" name="block_id" >
+                          <input id="block_name" class="form-control" type="text" value="'.$get_data->block->name.' '.$unitNo.'" name="block_name" readonly>';
+            $output .= '</div>';
+
+            $output .= '<div class="col-md-4">';
+            $output .= '<label for="plot_size"><strong>Size</strong></label>
+                          <select class="form-control" name="plot_size">';
+
+            $output .= '<option value="200">200</option>';
+            $output .= '<option value="500">500</option>';
+
+            $output .= '</select>';
+            $output .= '</div>';
+
+
+            $output .= '<div class="col-md-6" style="padding-top: 10px;">';
+            $output .= '<label for="applicant_name"><strong>Applicant Name</strong></label>
+                        <input id="applicant_name" placeholder="Enter Applicant Name" class="form-control" type="text" name="applicant_name" required>';
+            $output .= '</div>';
+
+            $output .= '<div class="col-md-6" style="padding-top: 10px;">';
+            $output .= '<label for="cnic"><strong>Applicant CNIC</strong></label>
+                        <input id="cnic" placeholder="Enter CNIC" class="form-control" type="text" name="cnic">';
+            $output .= '</div>';
+            
+
+            $output .= '<div class="col-md-6" style="padding-top: 10px;">';
+            $output .= '<label for="phone_no"><strong>Applicant Phone</strong></label>
+                        <input id="phone_no" placeholder="Enter Phone" class="form-control" type="text" name="phone_no">';
+            $output .= '</div>';
+
+
+            $output .= '<div class="col-md-6" style="padding-top: 10px;">';
+            $output .= '<label for="email_add"><strong>Email Address</strong></label>
+                        <input id="email_add" placeholder="Enter Email Address" class="form-control" type="text" name="email_add">';
+            $output .= '</div>';
+
+            $output .= '<div class="col-md-4" style="padding-top: 10px;">';
+            $output .= '<label for="booking_amount"><strong>Agreed Amount</strong></label>
+                        <input id="booking_amount" placeholder="Enter Agreed Amount" class="form-control" type="text" name="booking_amount">';
+            $output .= '</div>';
+
+            $output .= '<div class="col-md-4" style="padding-top: 10px;">';
+            $output .= '<label for="discount"><strong>Discount Amount</strong></label>
+                        <input id="discount" placeholder="Enter Discount Amount" class="form-control" type="text" name="discount">';
+            $output .= '</div>';
+
+            $output .= '<div class="col-md-4" style="padding-top: 10px;">';
+            $output .= '<label for="token"><strong>Token</strong></label>
+                        <input id="token" placeholder="Enter Token Amount" class="form-control" type="text" name="token">';
+            $output .= '</div>';
+
+
+            $output .= '<div class="col-md-4" style="padding-top: 10px;">';
+            $output .= '<label for="status"><strong>Status</strong></label>
+                          <select class="form-control" name="status">';
+
+            $output .= '<option value="Booked">Booked</option>';
+            $output .= '<option value="Hold">Hold</option>';
+
+            $output .= '</select>';
+            $output .= '</div>';
+
+            $output .= '<div class="col-md-8" style="padding-top: 10px; ">';
+            $output .= '<label for="notes"><strong>Notes</strong></label>
+                        <textarea class="form-control" name="notes" id="notes"></textarea>';
+            $output .= '</div>';
+
+
+            $output .= '<hr>';
+
+            $output .= '<h4>Receipt Area</h4>';
+
+            $output .= '<div class="col-md-6"  style="padding-top: 10px;">';
+            $output .= '<label for="payment_mode"><strong>Mode of Payments</strong></label>
+                          <select class="form-control" name="payment_mode">';
+
+            $output .= '<option value="Installment">Installment</option>';
+            $output .= '<option value="Cash">Cash</option>';
+
+            $output .= '</select>';
+            $output .= '</div>';
+
+            $output .= '<div class="col-md-6"  style="padding-top: 10px; padding-bottom: 15px;">';
+            $output .= '<label for="receipt_file"><strong>Upload Receipt</strong></label>
+                        <input id="receipt_file" class="form-control" type="file" name="file">';
+            $output .= '</div>';
+
+            $output .= '<div class="modal-footer" style="padding-top: 10px;">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>';
+
+            $output .= '</form>';
+
+            echo $output;
+
+          }elseif ($get_data->status == 'Booked') {
+            # code...
+          }elseif ($get_data->status == 'Hold') {
+            # code...
+          }elseif ($get_data->status == 'ForSale') {
+            # code...
+          }
+
+
+
+        }else{
+          //new record
+
+          $output = '';
+            $output .= '<form action = "NewBooking" method = "post">';
+            $output .= '<input type = "hidden" name = "_token" value = "'.csrf_token().'">';
+            $output .= '<h4>Booking Area</h4>';
+            $output .= '<div class="col-md-4">';
+            $output .= '<label for="booking_date"><strong>Booking Date</strong></label>
+                          <input id="booking_date" class="form-control" type="date" name="booking_date" required>';
+            $output .= '</div>';
+            
+            $output .= '<div class="col-md-4">';
+            $output .= '<label for="block_id"><strong>Unit No</strong></label>
+                          <input id="block_id" class="form-control" type="hidden" value="'.$block_data->id.'" name="block_id" >
+                          <input id="block_name" class="form-control" type="text" value="'.$block_data->name.' '.$unitNo.'" name="block_name" readonly>';
+            $output .= '</div>';
+
+            $output .= '<div class="col-md-4">';
+            $output .= '<label for="plot_size"><strong>Size</strong></label>
+                          <select class="form-control" name="plot_size">';
+
+            $output .= '<option value="200">200</option>';
+            $output .= '<option value="500">500</option>';
+
+            $output .= '</select>';
+            $output .= '</div>';
+
+
+            $output .= '<div class="col-md-6" style="padding-top: 10px;">';
+            $output .= '<label for="applicant_name"><strong>Applicant Name</strong></label>
+                        <input id="applicant_name" placeholder="Enter Applicant Name" class="form-control" type="text" name="applicant_name" required>';
+            $output .= '</div>';
+
+            $output .= '<div class="col-md-6" style="padding-top: 10px;">';
+            $output .= '<label for="cnic"><strong>Applicant CNIC</strong></label>
+                        <input id="cnic" placeholder="Enter CNIC" class="form-control" type="text" name="cnic">';
+            $output .= '</div>';
+            
+
+            $output .= '<div class="col-md-6" style="padding-top: 10px;">';
+            $output .= '<label for="phone_no"><strong>Applicant Phone</strong></label>
+                        <input id="phone_no" placeholder="Enter Phone" class="form-control" type="text" name="phone_no">';
+            $output .= '</div>';
+
+
+            $output .= '<div class="col-md-6" style="padding-top: 10px;">';
+            $output .= '<label for="email_add"><strong>Email Address</strong></label>
+                        <input id="email_add" placeholder="Enter Email Address" class="form-control" type="text" name="email_add">';
+            $output .= '</div>';
+
+            $output .= '<div class="col-md-4" style="padding-top: 10px;">';
+            $output .= '<label for="booking_amount"><strong>Agreed Amount</strong></label>
+                        <input id="booking_amount" placeholder="Enter Agreed Amount" class="form-control" type="text" name="booking_amount">';
+            $output .= '</div>';
+
+            $output .= '<div class="col-md-4" style="padding-top: 10px;">';
+            $output .= '<label for="discount"><strong>Discount Amount</strong></label>
+                        <input id="discount" placeholder="Enter Discount Amount" class="form-control" type="text" name="discount">';
+            $output .= '</div>';
+
+            $output .= '<div class="col-md-4" style="padding-top: 10px;">';
+            $output .= '<label for="token"><strong>Token</strong></label>
+                        <input id="token" placeholder="Enter Token Amount" class="form-control" type="text" name="token">';
+            $output .= '</div>';
+
+
+            $output .= '<div class="col-md-4" style="padding-top: 10px;">';
+            $output .= '<label for="status"><strong>Status</strong></label>
+                          <select class="form-control" name="status">';
+
+            $output .= '<option value="Booked">Booked</option>';
+            $output .= '<option value="Hold">Hold</option>';
+
+            $output .= '</select>';
+            $output .= '</div>';
+
+            $output .= '<div class="col-md-8" style="padding-top: 10px; ">';
+            $output .= '<label for="notes"><strong>Notes</strong></label>
+                        <textarea class="form-control" name="notes" id="notes"></textarea>';
+            $output .= '</div>';
+
+
+            $output .= '<hr>';
+
+            $output .= '<h4>Receipt Area</h4>';
+
+            $output .= '<div class="col-md-6"  style="padding-top: 10px;">';
+            $output .= '<label for="payment_mode"><strong>Mode of Payments</strong></label>
+                          <select class="form-control" name="payment_mode">';
+
+            $output .= '<option value="Installment">Installment</option>';
+            $output .= '<option value="Cash">Cash</option>';
+
+            $output .= '</select>';
+            $output .= '</div>';
+
+            $output .= '<div class="col-md-6"  style="padding-top: 10px; padding-bottom: 15px;">';
+            $output .= '<label for="receipt_file"><strong>Upload Receipt</strong></label>
+                        <input id="receipt_file" class="form-control" type="file" name="file">';
+            $output .= '</div>';
+
+            $output .= '<div class="modal-footer" style="padding-top: 10px;">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>';
+
+            $output .= '</form>';
+
+            echo $output;
+
+        }
+
+      // try{
+
+      //   $check_status = Booking::where('block_id','=',$blockID)->where('unit_no','=',$unitNo)->first();
+
+      //   if($check_status->count() == 1){
+      //     //record exist in booking table
+
+      //     if($check_status->status == 'Available'){
+
+
+
+
+
+
+
+      //       $output = '';
+      //       $output .= '<form action = "AddBooking/'.$check_status->id.'" method = "post">';
+      //       $output .= '<input type = "hidden" name = "_token" value = "'.csrf_token().'">';
+
+      //       $output .= '<label for="booking_date"><strong>Booking Date</strong></label>
+      //                     <input id="booking_date" class="form-control" type="date" name="booking_date" required>';
+
+      //       $output .= '<label for="block_id"><strong>Block</strong></label>
+      //                     <input id="block_id" class="form-control" type="hidden" value="'.$check_status->block_id.'" name="block_id" >
+      //                     <input id="block_name" class="form-control" type="text" value="'.$check_status->block->name.'" name="block_name" readonly>';
+
+      //       $output .= '<label for="plot_size"><strong>Size</strong></label>
+      //                     <select class="form-control" name="plot_size">';
+
+      //       $output .= '<option value="200">200</option>';
+      //       $output .= '<option value="500">500</option>';
+
+      //       $output .= '</select>';
+
+
+      //       $output .= '<label for="unit_no"><strong>Unit-No</strong></label>
+      //                   <input id="unit_no" class="form-control" type="text" value="'.$unitNo.'" name="unit_no" >';
+
+      //       $output .= '<label for="applicant_name"><strong>Applicant Name</strong></label>
+      //                   <input id="applicant_name" placeholder="Enter Applicant Name" class="form-control" type="text" name="applicant_name" required>';
+
+      //       $output .= '<label for="cnic"><strong>Applicant Name</strong></label>
+      //                   <input id="cnic" placeholder="Enter CNIC" class="form-control" type="text" name="cnic">';
+
+      //       $output .= '<label for="phone_no"><strong>Applicant Phone</strong></label>
+      //                   <input id="phone_no" placeholder="Enter Phone" class="form-control" type="text" name="phone_no">';
+
+      //       $output .= '<label for="email_add"><strong>Email Address</strong></label>
+      //                   <input id="email_add" placeholder="Enter Email Address" class="form-control" type="text" name="email_add">';
+
+      //       $output .= '<label for="booking_amount"><strong>Booking Amount</strong></label>
+      //                   <input id="booking_amount" placeholder="Enter Booking Amount" class="form-control" type="text" name="booking_amount">';
+
+      //       $output .= '<label for="booking_amount"><strong>Booking Amount</strong></label>
+      //                   <input id="booking_amount" placeholder="Enter Booking Amount" class="form-control" type="text" name="booking_amount">';
+
+      //       $output .= '<label for="discount"><strong>Discount</strong></label>
+      //                   <input id="discount" placeholder="Enter Discount Amount" class="form-control" type="text" name="discount">';
+
+      //       $output .= '<div class="modal-footer">
+      //                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      //                     <button type="submit" class="btn btn-primary">Add Booking</button>
+      //                   </div>';
+
+      //       $output .= '</form>';
+
+      //       echo $output;
+
+      //     }elseif ($check_status->status == 'Booked') {
+      //       # code...
+      //     }elseif ($check_status->status == 'Hold') {
+      //       # code...
+      //     }elseif ($check_status->status == 'ForSale') {
+      //       # code...
+      //     }
+
+
+
+      //   }else{
+      //     //new record
+
+      //   }
+
+      // }catch (\Exception $e) {
+      //      Toastr::error('Operation Failed', 'Failed');
+      //      //return redirect()->back(); 
+      //   }
+
 
     }
 

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "36c5a2a06843affaa31e6e0465006ddf",
+    "content-hash": "ea01b7a92047599d1131a40d7767dc1a",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -106,6 +106,68 @@
             "description": "BaconQrCode is a QR code generator for PHP.",
             "homepage": "https://github.com/Bacon/BaconQrCode",
             "time": "2020-10-30T02:02:47+00:00"
+        },
+        {
+            "name": "brian2694/laravel-toastr",
+            "version": "5.54",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/brian2694/laravel-toastr.git",
+                "reference": "e543a8a6953be6b25706da4c7ae48600666a70dc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/brian2694/laravel-toastr/zipball/e543a8a6953be6b25706da4c7ae48600666a70dc",
+                "reference": "e543a8a6953be6b25706da4c7ae48600666a70dc",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/session": ">=5.2.7",
+                "illuminate/support": ">=5.2.7",
+                "php": ">=5.5.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Brian2694\\Toastr\\ToastrServiceProvider"
+                    ],
+                    "aliases": {
+                        "Toastr": "Brian2694\\Toastr\\Facades\\Toastr"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Brian2694\\Toastr\\": "src/"
+                },
+                "files": [
+                    "src/helper.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "brian2694",
+                    "email": "briansanchez2694@gmail.com"
+                }
+            ],
+            "description": "toastr.js for laravel 5.5",
+            "homepage": "https://github.com/brian2694/laravel-toastr",
+            "keywords": [
+                "laravel",
+                "notification",
+                "php",
+                "toastr"
+            ],
+            "support": {
+                "issues": "https://github.com/brian2694/laravel-toastr/issues",
+                "source": "https://github.com/brian2694/laravel-toastr/tree/5.54"
+            },
+            "time": "2020-07-13T22:18:02+00:00"
         },
         {
             "name": "brick/math",
@@ -7638,5 +7700,6 @@
     "platform": {
         "php": "^7.3|^8.0"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "2.0.0"
 }

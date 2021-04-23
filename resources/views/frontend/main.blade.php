@@ -4,6 +4,10 @@
 	<title>OUD Residency</title>
     <!-- <meta http-equiv="refresh" content="5; URL=http://localhost/map_project/"> -->
 	<link rel="stylesheet" type="text/css" href="{{ asset('public/css/style.css') }}" />
+    <link data-require="sweet-alert@*" data-semver="0.4.2" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <style>
 fieldset {
@@ -37,6 +41,24 @@ legend {
         <div style="text-align: center;">
           <h1>OUD Residency</h1>
         </div>
+
+        <div aria-hidden="true" class="modal fade" id="addBookingModal" role="dialog" tabindex="-1">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header faded smaller">
+            <div class="modal-title" style="text-align: center;">
+              <span>OUD Residency: </span><strong>Booking Form</strong>
+            </div>
+            <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true"> &times;</span></button>
+          </div>
+          <div class="modal-body">
+              <span id="newBookingForm"></span>
+            
+          </div>
+          
+        </div>
+      </div>
+    </div>
 <div class='myimage'>
     
   
@@ -102,13 +124,21 @@ legend {
                     @if($data->status == 'Booked')
                         <div class='commercialboxBooked com{{$data->unit_no}}'> &nbsp;&nbsp;SA {{$data->unit_no}}</div>
                     @else
-                        <div class='commercialbox com{{$x}}'> &nbsp;&nbsp;SA {{$data->unit_no}}</div>
+                    
+                        <!-- Available -->
+                        <a class="addbooking" data-id="{{$data->id}}" data-modalname="addBookingModal" data-block="{{$data->block_id}}" data-spanname="newBookingForm" data-toggle="modal" style="color: black;">
+                            <div class='commercialbox com{{$x}}'> &nbsp;&nbsp;SA {{$data->unit_no}}</div>
+                        </a>
+
                     @endif
                 
                 @endif
             @else
 
-                <div class='commercialbox com{{$x}}'>&nbsp;&nbsp;SA {{$x}}</div>
+                <a class="addbooking" data-id="{{$x}}" data-modalname="addBookingModal" data-block="2" data-spanname="newBookingForm" data-toggle="modal" style="color: black;">
+                    <div class='commercialbox com{{$x}}'>&nbsp;&nbsp;SA {{$x}}</div>
+                </a>
+                
             
             @endif
         @endforeach
@@ -352,30 +382,63 @@ legend {
         @endforeach
     @endfor
 
-    
-
-<!--     <div class='residentialboxC res_C48'></div>
-    <div class='residentialboxC res_C49'></div>
-    <div class='residentialboxC res_C50'></div>
-    <div class='residentialboxC_custom3 res_C51'></div>
-    <div class='residentialboxC_custom3 res_C52'></div>
-    <div class='residentialboxC_custom3 res_C53'></div> 
-    <div class='residentialboxC res_C54'></div>
-    <div class='residentialboxC res_C55'></div>
-    <div class='residentialboxC res_C56'></div>
-
-    <div class='residentialboxC res_C57'></div>
-    <div class='residentialboxC res_C58'></div>
-    <div class='residentialboxC res_C59'></div>
-    <div class='residentialboxC res_C60'></div>
-    <div class='residentialboxC res_C61'></div> -->
 
 </div>
-</body>
 
-<!-- <script type="text/javascript">
-    setTimeout(function(){
-   window.location.reload(1);
-}, 5000);
-</script> -->
+    <!--Modal - Asset Company Head-->
+
+
+</body>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script type="text/javascript">
+
+    $(document).ready(function(){
+
+        $(".addbooking").click(function(){
+       
+           var _token = $('input[name="_token"]').val();
+           var unit_no = $(this).data('id');
+           var block_id = $(this).data('block');
+           var target_modal = $(this).data('modalname');
+           var span_result = $(this).data('spanname');
+           var modalId = '#'.concat(target_modal);
+           var spanId = '#'.concat(span_result);
+
+           console.log(modalId);
+           console.log(spanId);
+            
+            $.ajax({
+             url:"{{ route('unit.book') }}",
+             post:"POST",
+             beforeSend: function (xhr) {
+                   var token = $('meta[name="csrf_token"]').attr('content');
+        
+                   if (token) {
+                         return xhr.setRequestHeader('X-CSRF-TOKEN', token);
+                   }
+               },
+             data:{
+                 unitNo:unit_no,
+                 blockID:block_id
+             },      
+             success:function(result)
+             {
+                
+              $(spanId).html(result);
+              $(modalId).modal('show');
+             }
+             
+            });
+       
+      });
+
+    });
+
+
+
+
+//     setTimeout(function(){
+//    window.location.reload(1);
+// }, 5000);
+</script>
 </html>
